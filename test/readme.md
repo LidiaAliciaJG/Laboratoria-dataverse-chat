@@ -1,0 +1,1 @@
+Esta carpeta contiene los tests de tus funciones y componentes. Por ejemplo los tests de dataFunctions deben estar aquí.

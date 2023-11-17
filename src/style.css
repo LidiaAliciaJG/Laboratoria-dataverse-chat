@@ -1,0 +1,156 @@
+@media (min-width: 1000px) {
+    * {
+      font-size: 16px;
+    }
+  
+    h1 {
+      font-size: xx-large;
+    }
+  
+    #button-clear {
+      margin-left: 15px;
+    }
+  
+    label[for="type-select"],
+    label[for="temporality-select"],
+    label[for="sort-select"] {
+      font-size: 18px;
+    }
+  
+    footer {
+      font-size: 8px;
+    }
+  
+    nav {
+      justify-content: center;
+    }
+  
+    .card {
+      max-width: 300px;
+    }
+    
+  }
+  
+  
+  
+  body {
+    background-color: rgb(26, 26, 26);
+    font-family: 'Fira Sans', sans-serif;
+    font-weight: 400;
+    color: whitesmoke;
+    font-size: small;
+  }
+  
+  header {
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    color: rgb(255, 53, 53);
+  }
+  
+  header img {
+    width: 100px;
+  }
+  
+  h1 {
+    margin: 0;
+    font-weight: 700;
+  }
+  
+  #estadisticas {
+    font-weight: 500;
+    margin-left: 10px;
+  }
+  
+  nav {
+    background-color: black;
+    padding: 25px 20px;
+    display: flex;
+    margin-bottom: 20px;
+    position: sticky;
+    top: 0;
+    flex-wrap: wrap;
+    font-weight: 600;
+    justify-content: none;
+  }
+  
+  
+  label[for="type-select"],
+  label[for="temporality-select"],
+  label[for="sort-select"],
+  select {
+    margin: 6px;
+    margin-right: 70px;
+    color: whitesmoke;
+    background-color: black;
+    border-color: white;
+  }
+  
+  #button-clear {
+    margin: 6px;
+    color: whitesmoke;
+    background-color: black;
+    border-color: white;
+  }
+  
+  /* investigar card --hover o card --display*/
+  
+  .card img {
+    width: 300px;
+    height: 400px;
+    border-radius: 10px 10px 0 0;
+    display: block;
+    margin: 0 auto;
+  }
+  
+  /* Estilo para los términos y definiciones en la tarjeta */
+  .card dt {
+    font-weight: 600;
+    margin-top: 5px;
+    color: #777777
+  }
+  
+  .card dd {
+    margin: 5px 0;
+    color: #e8dede;
+    font-weight: 500;
+  }
+  
+  .tarjetas {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  ul {
+    /*display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));*/
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    list-style: none;
+    padding: 0;
+  }
+  
+  .card:hover {
+    background-color: rgb(255, 53, 53);
+    transition: background-color 0.3s; /* Agrega una transición suave */
+  }
+  
+  .card:hover dt {
+    color: black;
+  }
+  
+  .card {
+    background-color: black;
+    border-radius: 10px;
+    padding: 20px;
+    flex: 1 1 300px;
+  }
+  
+  footer {
+    padding: 0px;
+    text-align: center;
+    font-size: xx-small;
+  }

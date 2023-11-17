@@ -1,0 +1,1 @@
+En esta carpeta están los datos con los que vas a trabajar (los datos de ejemplo o los datos que generarías con ayuda de la inteligencia artificial).
