@@ -3,7 +3,7 @@ import {inicio} from './views/Inicio.js';
 import {personaje} from './views/Personaje.js';
 import {chat} from './views/Chat.js';
 import { error } from './views/Error.js';
-import { main } from './main.js';
+import { cardSelected, main } from './main.js';
 // En este archivo definirás tus rutas e importarás los componentes que vas a renderizar.
 
 /*Ejemplo de definición de rutas:*/
@@ -32,6 +32,9 @@ document.addEventListener("DOMContentLoaded", (event) => {
     console.log(event.target.location.pathname);
     onURLChange(event.target.location.pathname);
     main();
+    cardSelected();
+
+    
 })
 
 

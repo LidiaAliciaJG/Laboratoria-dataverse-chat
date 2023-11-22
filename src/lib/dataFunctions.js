@@ -2,19 +2,20 @@ import { data as dataset } from '../data/dataset.js';
 
 export const filterData = (data, filterBy, value) => {
   function filtrado(data) {
-    if (filterBy === "temporality") {
-      if (value === "actual") {
-        return data.facts["temporality"] >= 2010 && data.facts["temporality"] <= 2023;
-      } else if (value === "anterior") {
-        return data.facts["temporality"] < 2010 && data.facts["temporality"] >= 1940;
-      } else {
-        return dataset;
-      }
-    }
     if (value === "") {
-      return dataset;
+      return true;
     } else {
-      return data[filterBy] === value || data.facts[filterBy] === value;
+      if (filterBy === "temporality") {
+        if (value === "actual") {
+          return data.facts["releaseYear"] >= 2010 && data.facts["releaseYear"] <= 2023;
+        } else if (value === "anterior") {
+          return data.facts["releaseYear"] < 2010 && data.facts["releaseYear"] >= 1940;
+        }
+      }
+      if (filterBy === "type") {
+        return data.type.name == value;
+      }
+      //return data.facts["filterBy"] === value;
     }
   }
   return data.filter(filtrado);

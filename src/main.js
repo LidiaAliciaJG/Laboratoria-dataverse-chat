@@ -13,6 +13,7 @@ export const main = () => {
   //dataList.innerHTML = "";
   //};
 
+
   const dataNum = document.querySelector("p");
   const renderStats = (data) => {
     dataNum.innerHTML = "Número de películas: " + computeStats(data).numMovies + "<br>Promedio de aprobación: " + computeStats(data).criticMovies + "%";
@@ -131,3 +132,14 @@ export const main = () => {
 
 
 }
+
+export const cardSelected = () => {
+  const card = document.querySelectorAll("li");
+  card.forEach((element) =>
+    element.addEventListener("click", () => {
+      console.log(element.id);
+      return element.id;
+    })
+  );
+}
+

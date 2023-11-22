@@ -1,6 +1,6 @@
 export function personaje(props) {
     const viewEl = document.createElement('div');
-    viewEl.textContent = 'Welcome to the home page!';
+    viewEl.textContent = 'PÁGINA DEL PERSONAJE';
     return viewEl;
   }
 /*

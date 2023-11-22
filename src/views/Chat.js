@@ -1,5 +1,5 @@
 export function chat(props) {
     const viewEl = document.createElement('div');
-    viewEl.textContent = 'This is the About page.';
+    viewEl.textContent = 'PÁGINA DE CHAT GRUPAL';
     return viewEl;
   }

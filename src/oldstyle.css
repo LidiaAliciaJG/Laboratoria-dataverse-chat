@@ -1,0 +1,73 @@
+@media (min-width: 1000px) {
+    * {
+      font-size: 16px;
+    }
+  
+    h1 {
+      font-size: xx-large;
+    }
+  
+    #button-clear {
+      margin-left: 15px;
+    }
+  
+    label[for="type-select"],
+    label[for="temporality-select"],
+    label[for="sort-select"] {
+      font-size: 18px;
+    }
+  
+    footer {
+      font-size: 8px;
+    }
+  
+    nav {
+      justify-content: center;
+    }
+  
+    .card {
+      max-width: 300px;
+    }
+    
+  }
+  
+  
+  
+  /* investigar card --hover o card --display*/
+  
+  .card img {
+    width: 300px;
+    height: 400px;
+    border-radius: 10px 10px 0 0;
+    display: block;
+    margin: 0 auto;
+  }
+  
+  /* Estilo para los términos y definiciones en la tarjeta */
+  .card dt {
+    font-weight: 600;
+    margin-top: 5px;
+    color: #777777
+  }
+  
+  .card dd {
+    margin: 5px 0;
+    color: #e8dede;
+    font-weight: 500;
+  }
+  
+  /*.tarjetas {
+    display: flex;
+    flex-wrap: wrap;
+  }*/
+  
+  .card:hover {
+    background-color: rgb(255, 53, 53);
+    transition: background-color 0.3s; /* Agrega una transición suave */
+  }
+  
+  .card:hover dt {
+    color: black;
+  }
+  
+  

@@ -1,7 +1,9 @@
 export const error = () => {
-    const p= document.createElement("p");
-    p.textContent="Error 404";
-    //p.innerhtml
-    return p;
-    };
+        const errorContainer = document.createElement("section");
+        errorContainer.innerHTML = `
+        <img class="img-error" src="../images/Error404.png" alt="Error 404: Página no encontrada">
+          `
+        errorContainer.setAttribute("id", "error");
     
+        return errorContainer;
+    };

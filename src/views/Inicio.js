@@ -30,6 +30,7 @@ export const inicio = () => {
 
     <div id="estadisticas">
         <p></p>
+        <button id="button-chat">Chat Grupal</button>
     </div>
 
     <div id="tarjetas">

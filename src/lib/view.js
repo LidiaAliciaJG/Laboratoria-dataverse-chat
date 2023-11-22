@@ -4,14 +4,16 @@ export const renderItems = (data) => {
   data.forEach(element => {
 
     const itemList = document.createElement("li");
-    const itemContainer = document.createElement("dl");
     itemList.classList.add("card");
+    itemList.setAttribute("id", element.id);
 
-    itemContainer.innerHTML = `
+    const itemContainerMovie = document.createElement("dl");
+
+    itemContainerMovie.innerHTML = `
         <img src=${element.imageUrl} alt=${element.name} />
-        <dt>Nombre:</dt><dd itemprop="name">${element.name}</dd>
-        <dt>Categoría:</dt><dd itemprop="type">${element.type}</dd>
-        <dt>Descripción:</dt><dd itemprop="description">${element.shortDescription}</dd>
+        <dt></dt><dd itemprop="type">${element.type.imageEmoji}</dd>
+        <dt></dt><dd itemprop="name">${element.name}</dd>
+        <dt></dt><dd itemprop="description">${element.shortDescription}</dd>
         <dt>Fecha de Estreno:</dt><dd itemprop="releaseDate">${element.facts.releaseDate}</dd>
         <dt>Actores Principales:</dt><dd itemprop="mainActors">${element.facts.mainActors.join(", ")}</dd>
         <dt>Premios:</dt><dd itemprop="awards">${element.facts.awards.join(", ")}</dd>
@@ -20,12 +22,27 @@ export const renderItems = (data) => {
         <dt>Calificación de la Audiencia:</dt><dd itemprop="audienceRating">${element.facts.audienceRating}</dd>
       `
 
-    itemList.setAttribute("itemscope", "");
-    itemList.setAttribute("itemtype","película");
-    itemContainer.setAttribute("itemscope", "");
-    itemContainer.setAttribute("itemtype", "películas");
+    /*itemList.addEventListener("click", () => {
+      let cardSelected = element.id;
+       console.log("seleccion:"+cardSelected);
+    })*/
 
-    itemList.appendChild(itemContainer);
+    const itemContainerChar = document.createElement("dl");
+    itemContainerChar.innerHTML = `
+      <img src=${element.maincharacter.imageURL} alt=${element.maincharacter.name} />
+      <dt>Charla con:</dt><dd itemprop="character">${element.maincharacter.name}</dd>
+    `
+
+
+    itemList.setAttribute("itemscope", "");
+    itemList.setAttribute("itemtype", "tarjeta-películas");
+    itemContainerMovie.setAttribute("itemscope", "");
+    itemContainerMovie.setAttribute("itemtype", "película");
+    itemContainerChar.setAttribute("itemscope", "");
+    itemContainerChar.setAttribute("itemtype", "protagonista");
+
+    itemList.appendChild(itemContainerMovie);
+    itemList.appendChild(itemContainerChar);
     list.appendChild(itemList);
   });
 
