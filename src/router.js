@@ -44,12 +44,11 @@ const renderView = (pathname, props = {}) => { //props={} -> truco: si sucede el
     }
 
     // render the correct view passing the value of props
-
 }
 
 export const navigateTo = (pathname, props = {}) => {
     // update window history with pushState:
-    const URLvisited = window.location.hostname + pathname;
+    const URLvisited = window.location.origin + pathname;
     history.pushState({}, "", URLvisited)
     // render the view with the pathname and props (ya creamos la función que lo realiza, solo llamamos):
     renderView(pathname, props);
@@ -58,5 +57,5 @@ export const navigateTo = (pathname, props = {}) => {
 export const onURLChange = (location) => { //CUANDO CAMBIE LA URL, SE TIENE QUE CAMBIAR LA VISTA
     // parse the location for the pathname and search params & convert the search params to an object [Cobra más sentido si la url es compleja. i.e. se utiliza querystringtoobject]
     // render the view with the pathname and object:
-    renderView(location); //no tiene props/propiedades
+    navigateTo(location); //no tiene props/propiedades
 }

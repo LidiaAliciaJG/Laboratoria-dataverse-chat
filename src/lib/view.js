@@ -1,6 +1,7 @@
 //SE TIENE QUE REFACTORIZAR para adaptarse a las vistas y componentes específicos de tu proyecto.
-export const renderItems = (data) => {
+export const renderCards = (data) => {
   const list = document.createElement("ul");
+  list.classList.add("ul-card");
   data.forEach(element => {
 
     const itemList = document.createElement("li");
@@ -22,12 +23,13 @@ export const renderItems = (data) => {
         <dt>Calificación de la Audiencia:</dt><dd itemprop="audienceRating">${element.facts.audienceRating}</dd>
       `
 
-    /*itemList.addEventListener("click", () => {
+    itemList.addEventListener("click", () => {
       let cardSelected = element.id;
-       console.log("seleccion:"+cardSelected);
-    })*/
+       console.log("Click on: "+cardSelected);
+    })
 
     const itemContainerChar = document.createElement("dl");
+    itemContainerChar.classList.add("tarjeta-protagonista");
     itemContainerChar.innerHTML = `
       <img src=${element.maincharacter.imageURL} alt=${element.maincharacter.name} />
       <dt>Charla con:</dt><dd itemprop="character">${element.maincharacter.name}</dd>
@@ -48,3 +50,28 @@ export const renderItems = (data) => {
 
   return list;
 };
+
+export const renderCharactersPreview = (data) => {
+  const preview = document.createElement("ul");
+  preview.classList.add("ul-previewPersonaje");
+  data.forEach(element => {
+    const itemPreview = document.createElement("li");
+    itemPreview.classList.add("preview-personaje");
+    itemPreview.setAttribute("id", element.id);
+    const itemContainerPreview = document.createElement("dl");
+    itemContainerPreview.innerHTML = `
+      <img src=${element.maincharacter.imageURL} alt=${element.maincharacter.name} />
+      <dd itemprop="character">${element.maincharacter.name}</dd>
+    `
+
+    itemPreview.addEventListener("click", () => {
+      let cardSelected = element.id;
+       console.log("Click on: "+cardSelected);
+    })
+
+    itemPreview.appendChild(itemContainerPreview);
+    preview.appendChild(itemPreview);
+  });
+
+  return preview;
+}

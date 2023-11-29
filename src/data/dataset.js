@@ -601,8 +601,8 @@ export const data = [
       "audienceRating": "90%"
     },
     "maincharacter": {
-      "name": "Oh Se-ri",
-      "imageURL": "https://example.com/oh-se-ri-image.jpg",
+      "name": "Oh Se-ri", //CORREGIR DATOS
+      "imageURL": "https://cdn.i-scmp.com/sites/default/files/d8/images/canvas/2023/02/15/e3d04f5e-3c21-49fa-a969-c61ffea3acc2_d135a308.jpg",
       "age": "30",
       "rol": "Actriz famosa",
       "mision": "Superar su pasado y encontrar el verdadero amor",
@@ -630,9 +630,9 @@ export const data = [
       "criticRating": "85%",
       "audienceRating": "92%"
     },
-    "maincharacter": {
+    "maincharacter": { //CORREGIR DATOS
       "name": "Woo Seo-ri",
-      "imageURL": "https://example.com/woo-seo-ri-image.jpg",
+      "imageURL": "https://media.glamour.mx/photos/6303c4127e82dc67718f6768/master/pass/abogada_Woo.jpg",
       "age": "38",
       "rol": "Abogada apasionada",
       "mision": "Buscar la verdad y luchar por la justicia",
@@ -660,9 +660,9 @@ export const data = [
       "criticRating": "92%",
       "audienceRating": "95%"
     },
-    "maincharacter": {
+    "maincharacter": {//CORREGIR DATOS
       "name": "Kim Shin",
-      "imageURL": "https://example.com/kim-shin-image.jpg",
+      "imageURL": "https://www.nacionrex.com/__export/1628285749372/sites/debate/img/2021/08/06/goblin-final_1_crop1628285735525.jpg_423682103.jpg",
       "age": "939",
       "rol": "Ser inmortal (Goblin)",
       "mision": "Encontrar a su novia destinada y descansar en paz",
@@ -692,7 +692,7 @@ export const data = [
     },
     "maincharacter": {
       "name": "Jung-suh",
-      "imageURL": "https://example.com/jung-suh-image.jpg",
+      "imageURL": "https://imgmedia.larepublica.pe/640x427/larepublica/migration/images/3W6JEQH52JED3BLT7ZC3WFXQCA.webp",
       "age": "Varía a lo largo de la historia",
       "rol": "Protagonista femenina",
       "mision": "Superar los desafíos del destino y el amor",
@@ -722,7 +722,7 @@ export const data = [
     },
     "maincharacter": {
       "name": "Geum Jan-di",
-      "imageURL": "https://example.com/geum-jan-di-image.jpg",
+      "imageURL": "https://trome.com/resizer/0C6BW6PaI0rTLaOYr-yxsy-rdX0=/1200x900/smart/filters:format(jpeg):quality(75)/cloudfront-us-east-1.images.arcpublishing.com/elcomercio/3RECJ3M5OVF2DPMQVLIB7WNVIE.jpg",
       "age": "18",
       "rol": "Estudiante común",
       "mision": "Enfrentar la intimidación y encontrar el amor verdadero",

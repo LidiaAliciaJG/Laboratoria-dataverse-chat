@@ -1,3 +1,5 @@
+import { main } from "./inicioExtras.js";
+
 export const inicio = () => {
     const inicioContainer = document.createElement("section");
     inicioContainer.innerHTML = `
@@ -37,6 +39,13 @@ export const inicio = () => {
     </div>
       `
     inicioContainer.setAttribute("id", "inicio");
+
+    window.addEventListener("DOMContentLoaded", () => {
+        main();
+        let keySaved = localStorage.getItem("key");
+        console.log("key guardada:" + keySaved);
+        console.log("main and cards fully loaded");
+    });
 
     return inicioContainer;
 };
