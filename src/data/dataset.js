@@ -10,7 +10,7 @@ export const data = [
     "shortDescription": "Película de terror y ciencia ficción basada en el videojuego.",
     "description": "Resident Evil es una película de terror y ciencia ficción dirigida por Paul W.S. Anderson y lanzada en 2002. Un grupo de personas queda atrapado en un laboratorio con experimentos genéticos mortales.",
     "imageUrl": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRreeKTZliPW4bM0t5bQOkDSvkd3qR70NQDnUT1_rfSjI3M_8tX",
-        "trailerUrl": "https://www.youtube.com/watch?v=aNEMuldkKnA",
+    "trailerUrl": "https://www.youtube.com/watch?v=aNEMuldkKnA",
     "facts": {
       "releaseDate": "15 de marzo de 2002",
       "releaseYear": "2002",
@@ -44,7 +44,7 @@ export const data = [
     "shortDescription": "Película de terror que explora eventos sobrenaturales y posesiones demoníacas.",
     "description": "Belzebuth es un thriller de terror dirigido por Emilio Portes. La trama sigue a un exdetective que investiga fenómenos paranormales y descubre una conexión inquietante con eventos traumáticos.",
     "imageUrl": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcScQCegvigKb4DLblUkAnsfJgSJwrQ-rRS9OdlnAxAmw5w_VTLY",
-        "trailerUrl": "https://youtu.be/Ujf1eurByvw?si=yFI4x_7CJ-DtKFGE",
+    "trailerUrl": "https://youtu.be/Ujf1eurByvw?si=yFI4x_7CJ-DtKFGE",
     "facts": {
       "releaseDate": "7 de junio de 2019",
       "releaseYear": "2019",
@@ -74,7 +74,7 @@ export const data = [
     "shortDescription": "Thriller de terror psicológico sobre un joven negro que descubre oscuros secretos.",
     "description": "Huye es un thriller de terror psicológico dirigido por Jordan Peele. Un joven negro descubre perturbadores secretos cuando visita la casa de la familia blanca de su novia.",
     "imageUrl": "https://mx.web.img2.acsta.net/c_310_420/pictures/17/08/05/23/55/189240.jpg",
-      "trailerUrl": "https://youtu.be/svOneiOur98?si=dK8Mu2v01O8Vr6k7",
+    "trailerUrl": "https://youtu.be/svOneiOur98?si=dK8Mu2v01O8Vr6k7",
     "facts": {
       "releaseDate": "24 de febrero de 2017",
       "releaseYear": "2017",
@@ -104,7 +104,7 @@ export const data = [
     "shortDescription": "Clásico de terror psicológico basado en la novela de Stephen King.",
     "description": "El Resplandor es un clásico de terror psicológico dirigido por Stanley Kubrick. Un escritor acepta un trabajo como cuidador de un hotel aislado, desencadenando eventos terroríficos.",
     "imageUrl": "https://www.ereschaco.com/img/noticias/1508856284_746124_1508856683_noticia_normal.jpg",
-      "trailerUrl": "https://youtu.be/Y8z1LAkgR0s?si=pZJ0OZJmN0jzRp49",
+    "trailerUrl": "https://youtu.be/Y8z1LAkgR0s?si=pZJ0OZJmN0jzRp49",
     "facts": {
       "releaseDate": "23 de mayo de 1980",
       "releaseYear": "1980",
@@ -134,7 +134,7 @@ export const data = [
     "shortDescription": "Adaptación televisiva del libro de Stephen King sobre el payaso asesino Pennywise.",
     "description": "It (1990) es una adaptación televisiva del libro de Stephen King. Un grupo de amigos se reúne para enfrentar a Pennywise, un malévolo payaso que resurge cada 27 años.",
     "imageUrl": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQBjYoPxdK3DfpCASEFk8eZX-Ko4JzWWdl1AfaV0o70UlqdsGp3",
-      "trailerUrl": "https://youtu.be/8qW9lyAKg0s?si=hu69mo_q0nrG1N39",
+    "trailerUrl": "https://youtu.be/8qW9lyAKg0s?si=hu69mo_q0nrG1N39",
     "facts": {
       "releaseDate": "18 de noviembre de 1990",
       "releaseYear": "1990",
@@ -195,7 +195,7 @@ export const data = [
     "shortDescription": "Comedia romántica sobre un hombre que conquista cada día al amor de su vida, que sufre de pérdida de memoria a corto plazo.",
     "description": "Como si fuera la primera vez es una encantadora comedia romántica dirigida por Peter Segal. Henry, un hombre enamorado, intenta conquistar diariamente a Lucy, quien sufre de pérdida de memoria a corto plazo.",
     "imageUrl": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcR75Eo7baEZrmk84z4Hm_-uk1xY4sMuelbI6FI0X-8ECEydiTBJ",
-      "trailerUrl": "https://youtu.be/lKXgf7BUQnE",
+    "trailerUrl": "https://youtu.be/lKXgf7BUQnE",
     "facts": {
       "releaseDate": "13 de febrero de 2004",
       "releaseYear": "2004",
@@ -225,7 +225,7 @@ export const data = [
     "shortDescription": "Comedia romántica sobre una jefa que finge un matrimonio para evitar la deportación.",
     "description": "La Propuesta es una divertida comedia romántica dirigida por Anne Fletcher. Una exigente jefa, Margaret, finge un matrimonio con su asistente, Andrew, para evitar la deportación y descubre el amor inesperadamente.",
     "imageUrl": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcS62HgBcRaLx2rvum_oqqZPoCkLiPK3oRT-6EbbQIcttUlWWQQx",
-      "trailerUrl": "https://youtu.be/j_x2I3J7rVw?si=Ltoy95YnORFqVoGq",
+    "trailerUrl": "https://youtu.be/j_x2I3J7rVw?si=Ltoy95YnORFqVoGq",
     "facts": {
       "releaseDate": "19 de junio de 2009",
       "releaseYear": "2009",
@@ -255,7 +255,7 @@ export const data = [
     "shortDescription": "Romance épico entre una joven adinerada y un trabajador durante el verano de 1940.",
     "description": "Diario de una Pasión es un drama romántico dirigido por Nick Cassavetes. La película relata un apasionado romance entre Noah y Allie durante el verano de 1940, desafiando barreras sociales y económicas.",
     "imageUrl": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTZfAvQ4lq-p5CrO2gPGnTT7wdMdSq7BVkQwD68-fLvchs7SXy6",
-      "trailerUrl": "https://youtu.be/BjJcYdEOI0k?si=eSeaFW6GgBuBMrn7",
+    "trailerUrl": "https://youtu.be/BjJcYdEOI0k?si=eSeaFW6GgBuBMrn7",
     "facts": {
       "releaseDate": "25 de junio de 2004",
       "releaseYear": "2004",
@@ -285,7 +285,7 @@ export const data = [
     "shortDescription": "Musical romántico sobre un pianista y una actriz que persiguen sus sueños en Los Ángeles.",
     "description": "La La Land es un encantador musical romántico dirigido por Damien Chazelle. Un pianista y una actriz se enamoran mientras persiguen sus sueños en la vibrante ciudad de Los Ángeles.",
     "imageUrl": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRTeGqgCfnw0J5becKNZ46EqVmeGOxTvjQfEl3LjlKY1AOgLcqv",
-      "trailerUrl": "https://youtu.be/45s24h98iOc?si=-IoxO1zByzBdi3aR",
+    "trailerUrl": "https://youtu.be/45s24h98iOc?si=-IoxO1zByzBdi3aR",
     "facts": {
       "releaseDate": "9 de diciembre de 2016",
       "releaseYear": "2016",
@@ -315,7 +315,7 @@ export const data = [
     "shortDescription": "Comedia sobre una agente del FBI que se infiltra en un concurso de belleza.",
     "description": "Miss Simpatía es una divertida comedia dirigida por Donald Petrie. Una agente del FBI, Gracie, se infiltra en un concurso de belleza para resolver un caso y descubre su propio potencial de feminidad.",
     "imageUrl": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcT_PRPWOAvRfpUlqw35saSn6yRKLH5QLbzwFjn_RhDuTpqZda_O",
-      "trailerUrl": "https://youtu.be/uflzo6WmyMo?si=_4EeVZwkesHQSsIv",
+    "trailerUrl": "https://youtu.be/uflzo6WmyMo?si=_4EeVZwkesHQSsIv",
     "facts": {
       "releaseDate": "22 de diciembre de 2000",
       "releaseYear": "2000",
@@ -345,7 +345,7 @@ export const data = [
     "shortDescription": "Comedia romántica adolescente basada en la obra 'La fierecilla domada'.",
     "description": "10 Cosas que Odio de Ti es una encantadora comedia romántica adolescente dirigida por Gil Junger. Inspirada en 'La fierecilla domada', la película explora las complejidades del amor y la adolescencia.",
     "imageUrl": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRWA58yHysIm3TueB3v-eOCA1WzOaBMXxI9I7JRIC6pHN7Pz9NO",
-      "trailerUrl": "https://youtu.be/QuAjU8evakM?si=vEgpWyKfwjbh-TMp",
+    "trailerUrl": "https://youtu.be/QuAjU8evakM?si=vEgpWyKfwjbh-TMp",
     "facts": {
       "releaseDate": "31 de marzo de 1999",
       "releaseYear": "1999",
@@ -377,7 +377,7 @@ export const data = [
     "shortDescription": "Película animada sobre una joven valiente que se disfraza de hombre para unirse al ejército en lugar de su padre.",
     "description": "Mulán es una emocionante película animada de Disney dirigida por Tony Bancroft y Barry Cook. La historia sigue a Mulán, una joven valiente que se disfraza de hombre para unirse al ejército en lugar de su anciano padre.",
     "imageUrl": "https://es.web.img2.acsta.net/c_310_420/medias/nmedia/18/80/55/28/20134045.jpg",
-      "trailerUrl": "https://www.youtube.com/watch?v=rmCAg6RbkTE",
+    "trailerUrl": "https://www.youtube.com/watch?v=rmCAg6RbkTE",
     "facts": {
       "releaseDate": "19 de junio de 1998",
       "releaseYear": "1998",
@@ -437,7 +437,7 @@ export const data = [
     "shortDescription": "Película animada sobre la vida de criaturas prehistóricas durante la Edad de Hielo.",
     "description": "La Era del Hielo es una película animada lanzada en 2002. La historia sigue las aventuras de un mamut, un tigre dientes de sable y un perezoso durante la Edad de Hielo.",
     "imageUrl": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQ6ArKtB4gSWn2IkhdUWMGp3fJ_fUECfeAYXM_yQNQb23cbJMrL",
-      "trailerUrl": "https://www.youtube.com/watch?v=RI7e1IksKEQ",
+    "trailerUrl": "https://www.youtube.com/watch?v=RI7e1IksKEQ",
     "facts": {
       "releaseDate": "15 de marzo de 2002",
       "releaseYear": "2002",
@@ -467,7 +467,7 @@ export const data = [
     "shortDescription": "Secuela de la película animada de Disney que combina música clásica con animación.",
     "description": "Fantasía 2000 es la fascinante secuela de la película animada de Disney lanzada en 1999. Combina música clásica con secuencias animadas únicas y creativas.",
     "imageUrl": "https://es.web.img3.acsta.net/c_310_420/medias/nmedia/18/86/25/52/20325851.jpg",
-      "trailerUrl": "https://www.youtube.com/watch?v=yOjsvOX4qQA",
+    "trailerUrl": "https://www.youtube.com/watch?v=yOjsvOX4qQA",
     "facts": {
       "releaseDate": "16 de diciembre de 1999",
       "releaseYear": "1999",
@@ -497,7 +497,7 @@ export const data = [
     "shortDescription": "Emocionante película animada que sigue la vida del león Simba en su viaje hacia el trono.",
     "description": "El Rey León es una icónica película animada de Disney dirigida por Roger Allers y Rob Minkoff. La historia sigue la vida de Simba, un león joven, mientras enfrenta desafíos y aprende a reclamar su lugar en el ciclo de la vida.",
     "imageUrl": "https://es.web.img2.acsta.net/c_310_420/medias/nmedia/18/68/20/31/19785394.jpg?coixp=47&coiyp=41",
-      "trailerUrl": "https://www.youtube.com/watch?v=h-As2lUk6IA",
+    "trailerUrl": "https://www.youtube.com/watch?v=h-As2lUk6IA",
     "facts": {
       "releaseDate": "15 de junio de 1994",
       "releaseYear": "1994",
@@ -527,7 +527,7 @@ export const data = [
     "shortDescription": "Película animada sobre un robot solitario, Wall-E, que descubre el amor y la importancia de cuidar la Tierra.",
     "description": "Wall-E es una conmovedora película animada de Pixar dirigida por Andrew Stanton. La historia sigue a Wall-E, un robot solitario, mientras descubre el amor y la importancia de cuidar la Tierra, cubierta de basura.",
     "imageUrl": "https://es.web.img3.acsta.net/c_310_420/pictures/14/04/30/10/41/026995.jpg",
-      "trailerUrl": "https://www.youtube.com/watch?v=IYPe2oWBV_w",
+    "trailerUrl": "https://www.youtube.com/watch?v=IYPe2oWBV_w",
     "facts": {
       "releaseDate": "27 de junio de 2008",
       "releaseYear": "2008",
@@ -560,7 +560,7 @@ export const data = [
     "shortDescription": "Comedia romántica que sigue la historia de una joven torpe que se enamora del chico más popular de la escuela.",
     "description": "Playful Kiss es una encantadora comedia romántica. Basada en el manga 'Itazura na Kiss', cuenta la historia de una joven torpe, Oh Ha-ni, que se enamora de Baek Seung-jo, el chico más popular de la escuela.",
     "imageUrl": "https://i.pinimg.com/originals/07/91/80/0791809e2267d098b26fb8dfb7d8c3e5.jpg",
-      "trailerUrl": "https://www.youtube.com/watch?v=IEg49sYoQJY",
+    "trailerUrl": "https://www.youtube.com/watch?v=IEg49sYoQJY",
     "facts": {
       "releaseDate": "1 de septiembre de 2010",
       "releaseYear": "2010",
@@ -590,7 +590,7 @@ export const data = [
     "shortDescription": "Drama romántico que explora la relación complicada entre una actriz famosa y un médico.",
     "description": "Love to Hate You es un intenso drama romántico que explora la relación complicada entre una actriz famosa, Oh Se-ri, y un médico, Ko Eun-gi, que choca debido a sus personalidades opuestas.",
     "imageUrl": "https://fr.web.img4.acsta.net/pictures/23/01/31/17/05/3122986.jpg",
-      "trailerUrl": "https://www.youtube.com/watch?v=drPRL7GrVco",
+    "trailerUrl": "https://www.youtube.com/watch?v=drPRL7GrVco",
     "facts": {
       "releaseDate": "25 de abril de 2019",
       "releaseYear": "2019",
@@ -620,7 +620,7 @@ export const data = [
     "shortDescription": "Drama legal que sigue la vida de una apasionada abogada mientras lucha por la justicia.",
     "description": "Abogada Woo es un emocionante drama legal que sigue la vida de Woo Seo-ri, una apasionada abogada que lucha por la justicia y enfrenta desafíos personales y profesionales.",
     "imageUrl": "https://www.infobae.com/new-resizer/jEgWsux9AYiucDJYnv54UG-xRLQ=/1200x1600/filters:format(webp):quality(85)/cloudfront-us-east-1.images.arcpublishing.com/infobae/OIB5OFGNWNDKPBSKIA3FJEOT4A.jpg",
-      "trailerUrl": "https://www.youtube.com/watch?v=oAXl3acDZjc",
+    "trailerUrl": "https://www.youtube.com/watch?v=oAXl3acDZjc",
     "facts": {
       "releaseDate": "16 de mayo de 2016",
       "releaseYear": "2016",
@@ -650,7 +650,7 @@ export const data = [
     "shortDescription": "Fantasía romántica que sigue la vida de un ser inmortal y su relación con una joven destinada a ser su novia.",
     "description": "Goblin es una fascinante fantasía romántica que sigue la vida de Kim Shin, un ser inmortal, y su relación con Ji Eun-tak, una joven destinada a ser su novia y poner fin a su inmortalidad.",
     "imageUrl": "https://images.justwatch.com/poster/253085387/s718/goblin-el-solitario-ser-inmortal.jpg",
-      "trailerUrl": "https://www.youtube.com/watch?v=S94ukM8C17A",
+    "trailerUrl": "https://www.youtube.com/watch?v=S94ukM8C17A",
     "facts": {
       "releaseDate": "2 de diciembre de 2016",
       "releaseYear": "2016",
@@ -680,7 +680,7 @@ export const data = [
     "shortDescription": "Drama romántico que narra la conmovedora historia de amor entre una pareja desde la adolescencia hasta la adultez.",
     "description": "Escalera al Cielo es un conmovedor drama romántico que narra la historia de amor entre un par de adolescentes, Jung-suh y Song-joo, y sus desafíos a lo largo de la vida.",
     "imageUrl": "https://images.justwatch.com/poster/166251016/s718/escalera-al-cielo.jpg",
-      "trailerUrl": "https://www.youtube.com/watch?v=SN61FicHhC0",
+    "trailerUrl": "https://www.youtube.com/watch?v=SN61FicHhC0",
     "facts": {
       "releaseDate": "3 de diciembre de 2003",
       "releaseYear": "2003",
@@ -710,7 +710,7 @@ export const data = [
     "shortDescription": "Drama romántico que sigue la vida de una chica común que se encuentra con cuatro chicos excepcionales.",
     "description": "Los Chicos Son Mejores que las Flores es un emocionante drama romántico que sigue la vida de Geum Jan-di, una chica común que ingresa a una prestigiosa escuela y se encuentra con F4, un grupo de cuatro chicos excepcionales.",
     "imageUrl": "https://upload.wikimedia.org/wikipedia/pt/8/89/Boys_over_flowers_promotional_poster.jpg",
-      "trailerUrl": "https://www.youtube.com/watch?v=8GYGkdcCIjM",
+    "trailerUrl": "https://www.youtube.com/watch?v=8GYGkdcCIjM",
     "facts": {
       "releaseDate": "5 de enero de 2009",
       "releaseYear": "2009",

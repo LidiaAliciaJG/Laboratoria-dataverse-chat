@@ -1,5 +1,5 @@
 export function getKey() {
-    const getKeyContainer = document.createElement("section");
+  const getKeyContainer = document.createElement("section");
   getKeyContainer.innerHTML = `
         <div id="key-instruction">
         <h5>Instrucciones:</h5>
@@ -15,23 +15,25 @@ export function getKey() {
   getKeyContainer.setAttribute("id", "get-api");
 
   window.addEventListener("DOMContentLoaded", () => {
-    
+
     const keyForm = document.querySelector("#key-form");
     const keyInput = document.querySelector("#key-input");
-    
+
     keyForm.addEventListener("submit", (event) => {
-        event.preventDefault();
-        let key = keyInput.value.trim();
-        if (!key) return;
-        keyInput.value = "";
-        localStorage.setItem("key",key);
-        console.log("getting key");
-        window.location = "/chat";
+      event.preventDefault();
+      const key = keyInput.value.trim();
+      if (!key) return;
+      keyInput.value = "";
+      localStorage.setItem("key", key);
+      console.log("getting key");
+      window.location = "/chat";
     })
 
-    let keySaved = localStorage.getItem("key");
-    console.log("key guardada:"+keySaved);
+    
   });
 
   return getKeyContainer;
 }
+
+//descargar postman -> https://insomnia.rest/ https://www.postman.com/
+//endpoints en imagen

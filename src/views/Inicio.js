@@ -1,8 +1,8 @@
 import { main } from "./inicioExtras.js";
 
 export const inicio = () => {
-    const inicioContainer = document.createElement("section");
-    inicioContainer.innerHTML = `
+  const inicioContainer = document.createElement("section");
+  inicioContainer.innerHTML = `
     <nav>
         <label for="type-select">Categorías:</label>
         <select name="type" id="type-select">
@@ -38,14 +38,14 @@ export const inicio = () => {
     <div id="tarjetas">
     </div>
       `
-    inicioContainer.setAttribute("id", "inicio");
+  inicioContainer.setAttribute("id", "inicio");
 
-    window.addEventListener("DOMContentLoaded", () => {
-        main();
-        let keySaved = localStorage.getItem("key");
-        console.log("key guardada:" + keySaved);
-        console.log("main and cards fully loaded");
-    });
+  window.addEventListener("DOMContentLoaded", () => {
+    main();
+    const keySaved = localStorage.getItem("key");
+    console.log("key guardada:" + keySaved);
+    console.log("main and cards fully loaded");
+  });
 
-    return inicioContainer;
+  return inicioContainer;
 };

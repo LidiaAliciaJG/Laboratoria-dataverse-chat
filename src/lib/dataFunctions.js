@@ -13,7 +13,7 @@ export const filterData = (data, filterBy, value) => {
         }
       }
       if (filterBy === "type") {
-        return data.type.name == value;
+        return data.type.name === value;
       }
       //return data.facts["filterBy"] === value;
     }

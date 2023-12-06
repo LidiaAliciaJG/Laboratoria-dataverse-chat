@@ -1,27 +1,34 @@
 import { textchat } from "./chatExtras.js";
 
-export function chatgrupal(props) {
+export function chatgrupal() {
   const chatgContainer = document.createElement("section");
   chatgContainer.innerHTML = `
     <div id="personajes">
-      <h3>PERSONAJE</h3>
     </div>
 
     <div id="chatGrupal">
       <div id="chatGrupal-container">
         <div id="messages">
         </div>
-        <div id="character-status">
-        <h6>Personaje escribiendo...</h6>
-        </div>
+
+        <div id="chatGrupal-menu">
+          <div id="character-status">
+          <h6>Personaje escribiendo...</h6>
+          </div>
+
           <form id="message-form">
             <input type="text" id="message-input" placeholder="Escribe un mensaje..."/>
             <button type="submit" class="button-send"><img src="https://img.icons8.com/metro/104/757575/long-arrow-up.png" alt="enviar"/></button>
           </form>
+        </div>
+      </div>
+
+      <div id="errores">
       </div>
 
       <div id="instrucciones">
       <h5>Instrucciones:</h5>
+      <p></p>
       </div>
     </div>
       `
@@ -30,11 +37,10 @@ export function chatgrupal(props) {
   window.addEventListener("DOMContentLoaded", () => {
     textchat();
     console.log("chat fully loaded");
-    let keySaved = localStorage.getItem("key");
-    console.log("key guardada:"+keySaved);
+    localStorage.removeItem("history");
   });
 
   //https://codepen.io/gnevin/pen/rNBbevW
 
   return chatgContainer;
-};
+}

@@ -24,8 +24,10 @@ export const renderCards = (data) => {
       `
 
     itemList.addEventListener("click", () => {
-      let cardSelected = element.id;
-       console.log("Click on: "+cardSelected);
+      const cardSelected = element.id;
+      console.log("Click on: " + cardSelected);
+      localStorage.setItem("prop-character",cardSelected);
+      window.location = "/personaje";
     })
 
     const itemContainerChar = document.createElement("dl");
@@ -65,8 +67,10 @@ export const renderCharactersPreview = (data) => {
     `
 
     itemPreview.addEventListener("click", () => {
-      let cardSelected = element.id;
-       console.log("Click on: "+cardSelected);
+      const cardSelected = element.id;
+      console.log("Click on: " + cardSelected);
+      localStorage.setItem("prop-character",cardSelected);
+      window.location = "/personaje";
     })
 
     itemPreview.appendChild(itemContainerPreview);

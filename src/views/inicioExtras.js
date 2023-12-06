@@ -33,7 +33,7 @@ const clear = (dataset, dataList, elementDOM, filterState, filterType, filterDat
 const clickToChat = () => {
   const btnChat = document.querySelector("#button-chat");
   btnChat.addEventListener("click", () => {
-    let keySaved = localStorage.getItem("key");
+    const keySaved = localStorage.getItem("key");
     if (!keySaved) {
       window.location = "/api";
     } else {
@@ -114,7 +114,10 @@ const sorts = (sortName, dataList, filterState) =>
 
 
 export const main = () => {
-  console.log("Cargando funciones de main.js");
+  console.log("Loading main.js");
+  
+  const head_title = document.querySelector("title");
+  head_title.textContent="PELiSINFO | Inicio";
 
   const dataList = document.querySelector("#tarjetas");
   renderData(data, dataList);

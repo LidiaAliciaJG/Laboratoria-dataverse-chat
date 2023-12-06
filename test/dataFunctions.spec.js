@@ -1,6 +1,6 @@
 import { computeStats, filterData, sortData } from '../src/lib/dataFunctions.js';
-import { pruebadataset as fakeDataset } from '../src/data/data.js';
-import { pruebadataset2 as fakeDataset2 } from '../src/data/data.js';
+import { pruebadataset as fakeDataset } from '../src/data/dataTest.js';
+import { pruebadataset2 as fakeDataset2 } from '../src/data/dataTest.js';
 
 describe('Función computeStats:', () => {
 
@@ -14,8 +14,8 @@ describe('Función computeStats:', () => {
   });
 
   describe('Promedio de aprobación', () => {
-    it('"78%","86%" should return 82%', () => {
-      expect(computeStats(fakeDataset).criticMovies).toBe(82);
+    it('"74%","86%" should return 82%', () => {
+      expect(computeStats(fakeDataset).criticMovies).toBe(80);
     });
     it('"91%","80%","35%" should return 68.7%', () => {
       expect(computeStats(fakeDataset2).criticMovies).toBe(68.7);
@@ -23,8 +23,6 @@ describe('Función computeStats:', () => {
   });
 
 });
-
-
 
 const filterByType = 'type';
 const valueType = 'Comedia Romántica';
