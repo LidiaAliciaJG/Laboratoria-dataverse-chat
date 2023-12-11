@@ -24,9 +24,9 @@ export const renderCards = (data) => {
       `
 
     itemList.addEventListener("click", () => {
-      const cardSelected = element.id;
+      const cardSelected = JSON.stringify(element);//volverlo string
       console.log("Click on: " + cardSelected);
-      localStorage.setItem("prop-character",cardSelected);
+      localStorage.setItem("prop-character",cardSelected);//localStorage solo acepta string
       window.location = "/personaje";
     })
 
@@ -67,7 +67,7 @@ export const renderCharactersPreview = (data) => {
     `
 
     itemPreview.addEventListener("click", () => {
-      const cardSelected = element.id;
+      const cardSelected = JSON.stringify(element);
       console.log("Click on: " + cardSelected);
       localStorage.setItem("prop-character",cardSelected);
       window.location = "/personaje";
@@ -78,4 +78,19 @@ export const renderCharactersPreview = (data) => {
   });
 
   return preview;
+}
+
+export const renderCharacterInfo = (element) => {
+  const itemContainerPreview = document.createElement("dl");
+  itemContainerPreview.setAttribute("id", element.id);
+    itemContainerPreview.innerHTML = `
+    <img src=${element.maincharacter.imageURL} alt=${element.maincharacter.name} />
+    <dt></dt><dd itemprop="name">${element.maincharacter.name}</dd>
+    <dt>Edad:</dt><dd itemprop="age">${element.maincharacter.age}</dd>
+    <dt>Rol:</dt><dd itemprop="rol">${element.maincharacter.rol}</dd>
+    <dt>Misión:</dt><dd itemprop="mision">${element.maincharacter.mision}</dd>
+    <dt>Dato curioso:</dt><dd itemprop="funFact">${element.maincharacter.funFact}</dd>
+    <dt>Actor:</dt><dd itemprop="actor">${element.maincharacter.actor}</dd>
+    `
+    return itemContainerPreview;
 }

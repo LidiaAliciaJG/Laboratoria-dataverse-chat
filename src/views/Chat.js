@@ -12,13 +12,12 @@ export function chatgrupal() {
         </div>
 
         <div id="chatGrupal-menu">
-          <div id="character-status">
-          <h6>Personaje escribiendo...</h6>
+          <div id="characters-status">
           </div>
 
           <form id="message-form">
             <input type="text" id="message-input" placeholder="Escribe un mensaje..."/>
-            <button type="submit" class="button-send"><img src="https://img.icons8.com/metro/104/757575/long-arrow-up.png" alt="enviar"/></button>
+            <button class="button-send"><img src="https://img.icons8.com/metro/104/757575/long-arrow-up.png" alt="enviar"/></button>
           </form>
         </div>
       </div>

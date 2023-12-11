@@ -218,12 +218,12 @@
     overflow-y: auto;
   }
 
-  #character-status {
+  #characters-status {
     padding: 0 10px;
     height: 20px;
   }
 
-  #character-status h6 {
+  #characters-status h6 {
     margin: 0;
     color: #757575;
   }
@@ -275,7 +275,7 @@
   }
 
   .user,
-  .bot {
+  .assistant {
     padding: 10px;
     border-radius: 5px;
     margin-bottom: 10px;
@@ -283,7 +283,7 @@
     word-wrap: break-word;
   }
 
-  .bot {
+  .assistant {
     background: #D04542;
     color: white;
     align-self: start;
@@ -310,14 +310,54 @@
 
   /* PERSONAJE */
 
-  #chatPersonaje-container {
-    background-color: black;
-    width: 80%;
-    height: 400px;
-    margin: auto;
+  #personaje-detalles {
     display: flex;
-    justify-content: space-between;
     flex-direction: column;
+    align-items: center;
+  }
+
+  #personaje {
+    background-color: black;
+    padding: 0;
+    width: 80%;
+    height: 300px;
+    position: relative;
+  }
+
+  #chatIndividual {
+    width: 100%;
+  }
+
+  #personaje img {
+    width: 80px;
+    height: 100px;
+  }
+
+  #character-status {
+    background-color: #292929;
+    padding: 10px 20px;
+    display: flex;
+    height: 20px;
+    align-items: center;
+  }
+  #character-status h5, h6 {
+    margin: 0 10px;
+  }
+  #character-status img {
+    width: 30px;
+    height: 30px;
+    border-radius: 100px;
+  }
+
+  #chatIndividual-container {
+    background-color: black;
+    height: 400px;
+    margin: 40px;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+    border: #292929 solid 5px;
+    overflow-y: auto;
   }
 
   /* API KEY */
@@ -352,15 +392,24 @@
   @media (min-width: 1000px) {
 
     #personajes {
-      width: 60%;
+      width: 50%;
     }
 
     #chatGrupal {
-      width: 40%;
+      width: 45%;
     }
 
-    #chat-grupal {
+    #personaje {
+      width: 30%;
+    }
+
+    #chatIndividual {
+      width: 60%;
+    }
+
+    #chat-grupal, #personaje-detalles {
       flex-direction: row;
+      justify-content: center;
     }
 
     .preview-personaje img {

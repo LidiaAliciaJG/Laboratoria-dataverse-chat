@@ -4,21 +4,23 @@ import { renderCharactersPreview } from '../lib/view.js';
 
 //const apiKey = process.env.OPENAI_API_KEY;
 const keySaved = localStorage.getItem("key");
-    console.log("key guardada:" + keySaved);
-
-// PARA CHAT INDIVIDUAL const character = localStorage.getItem("prop-character");
+console.log("key guardada:" + keySaved);
 
 function saveHistory(content, role) {
-  if (role==="bot") {
-    role="assistant";
-  }
   const elementHistory = `{ role: "${role}", content: "${content}" },`
-  const messageHistory= JSON.parse(localStorage.getItem("history")) || [];
+  const messageHistory = JSON.parse(localStorage.getItem("history")) || [];
   messageHistory.push(elementHistory);
   localStorage.setItem("history", JSON.stringify(messageHistory));
-  console.log(messageHistory);
 }
 
+function typingStatus(elementDOM, status, props) {
+  //<img src="${props.maincharacter.imageURL}" alt=${props.maincharacter.name}">
+  if (status === "none") {
+    elementDOM.innerHTML = "";
+  } else {
+    elementDOM.innerHTML = `<h6>${props.maincharacter.name} ${status}</h6>`;
+  }
+}
 
 function addMessage(message, user, messagesContainer) {
   const messageElement = document.createElement("div");
@@ -31,16 +33,16 @@ function addMessage(message, user, messagesContainer) {
   saveHistory(message, user)
 }
 
-function sendMessage(message) {
-
-  const history= JSON.parse(localStorage.getItem("history")) || [];
-
-  //crear un ciclo donde se coloque el response y se sustituya character y movie por el elemento y su id o se llame a su objeto completo
+function sendMessage(message, element) {
+  const history = JSON.parse(localStorage.getItem("history")) || [];
+  const character = element.maincharacter.name;
+  const movie = element.name;
+  console.log(character, movie);
   const response = fetch("https://api.openai.com/v1/chat/completions", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      "Authorization":`Bearer ${keySaved}`
+      "Authorization": `Bearer ${keySaved}`
     },
     body: JSON.stringify({
       "model": "gpt-3.5-turbo",
@@ -56,7 +58,6 @@ function sendMessage(message) {
       }]
     })
   });
-  
   return response;
 }
 
@@ -66,7 +67,7 @@ const renderChar = (dataset, elementDOM) => {
 };
 
 const renderError = (messageError, elementDOM) => {
-  elementDOM.innerHTML="";
+  elementDOM.innerHTML = "";
   const paragraph = document.createElement("p");
   paragraph.innerHTML = "<strong>Error - </strong>" + messageError;
   elementDOM.appendChild(paragraph);
@@ -76,7 +77,7 @@ export const textchat = () => {
   console.log("Cargando funciones del chat.js");
 
   const head_title = document.querySelector("title");
-  head_title.textContent="PELiSINFO | Chat grupal";
+  head_title.textContent = "PELiSINFO | Chat grupal";
 
   const dataChar = document.querySelector("#personajes");
   renderChar(data, dataChar);
@@ -86,6 +87,8 @@ export const textchat = () => {
   const messageInput = document.querySelector("#message-input");
   const errorContainer = document.querySelector("#errores");
 
+  const chars_statusContainer = document.querySelector("#characters-status");
+
   messageForm.addEventListener("submit", (event) => {
     event.preventDefault();
     const message = messageInput.value.trim(); //eliminar espacios en blanco
@@ -93,22 +96,23 @@ export const textchat = () => {
     addMessage(message, "user", messagesContainer);
     messageInput.value = ""; //limpiar la caja de texto cada que se envía
 
-    //const messageHistory= JSON.parse(localStorage.getItem("history")) || [];
-    
-    sendMessage(message).then((response) => {
-      response.json().then((response2) => {
-        console.log(response2);
-        if (response2.error) {
-          const messageError = response2.error.message;
-          renderError(messageError, errorContainer);
-        } else {
-          const messageResponse=response2.choices[0].message.content;
-          addMessage(messageResponse, "bot", messagesContainer);
-          //messageHistory.push(response2.choices[0].message);
-          //localStorage.setItem("history", JSON.stringify(messageHistory));
-          //console.log(messageHistory);
-        }
-      })
+    data.forEach((element) => {
+      sendMessage(message, element).then((response) => {
+        response.json().then((response2) => {
+          console.log(response2);
+          if (response2.error) {
+            const messageError = response2.error.message;
+            renderError(messageError, errorContainer);
+          } else {
+            typingStatus(chars_statusContainer, "escribiendo...", element);
+            const messageResponse = response2.choices[0].message.content;
+            addMessage(messageResponse, "assistant", messagesContainer);
+          }
+        });
+      });
     })
+
+
+
   })
 }

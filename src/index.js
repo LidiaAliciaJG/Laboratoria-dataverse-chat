@@ -23,7 +23,8 @@ setRootElement(viewContainer);
 document.addEventListener("DOMContentLoaded", (event) => {
   console.log("DOM fully loaded and parsed");
   console.log(event.target.location.pathname);
-  const prop=localStorage.getItem("prop-character");
+  const propsaved=localStorage.getItem("prop-character"); //obtener el string guardado
+  const prop=JSON.parse(propsaved); //regresar el string a objeto
   onURLChange(event.target.location.pathname, prop);
 })
 
