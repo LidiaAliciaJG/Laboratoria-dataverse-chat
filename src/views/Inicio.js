@@ -28,6 +28,7 @@ export const inicio = () => {
         </select>
 
         <button data-testid="button-clear" id="button-clear">Limpiar filtro</button>
+        <button id="button-api">API key</button>
      </nav>
 
     <div id="estadisticas">

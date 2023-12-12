@@ -27,7 +27,13 @@ export const renderCards = (data) => {
       const cardSelected = JSON.stringify(element);//volverlo string
       console.log("Click on: " + cardSelected);
       localStorage.setItem("prop-character",cardSelected);//localStorage solo acepta string
+      const keySaved = localStorage.getItem("key");
+    if (!keySaved) {
+      window.location = "/api";
+      localStorage.setItem("vistaBtn", "/personaje");
+    } else {
       window.location = "/personaje";
+    }
     })
 
     const itemContainerChar = document.createElement("dl");

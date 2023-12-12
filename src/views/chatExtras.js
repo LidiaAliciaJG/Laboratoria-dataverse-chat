@@ -18,14 +18,20 @@ function typingStatus(elementDOM, status, props) {
   if (status === "none") {
     elementDOM.innerHTML = "";
   } else {
-    elementDOM.innerHTML = `<h6>${props.maincharacter.name} ${status}</h6>`;
+    elementDOM.innerHTML = `<h6>${status}</h6>`;
   }
 }
 
-function addMessage(message, user, messagesContainer) {
+function addMessage(message, user, messagesContainer, characterName) {
   const messageElement = document.createElement("div");
   messageElement.classList.add(user);
-  messageElement.innerHTML = message;
+  //messageElement.innerHTML = message;
+  if (user==="assistant") {
+    messageElement.innerHTML = `${characterName}: ${message}`;
+  } else {
+    messageElement.innerHTML = message;
+  }
+  
 
   messagesContainer.appendChild(messageElement);
   messagesContainer.scrollTo(0, messagesContainer.scrollHeight); //envía la visualización hasta abajo de todo, como whatsapp
@@ -36,7 +42,7 @@ function addMessage(message, user, messagesContainer) {
 function sendMessage(message, element) {
   const history = JSON.parse(localStorage.getItem("history")) || [];
   const character = element.maincharacter.name;
-  const movie = element.name;
+  const movie = element.name; //documentacion api, obtener id //
   console.log(character, movie);
   const response = fetch("https://api.openai.com/v1/chat/completions", {
     method: "POST",
@@ -93,26 +99,60 @@ export const textchat = () => {
     event.preventDefault();
     const message = messageInput.value.trim(); //eliminar espacios en blanco
     if (!message) return; //si el mensaje esta vacío
-    addMessage(message, "user", messagesContainer);
+    addMessage(message, "user", messagesContainer, "");
     messageInput.value = ""; //limpiar la caja de texto cada que se envía
 
-    data.forEach((element) => {
-      sendMessage(message, element).then((response) => {
+    //typingStatus(chars_statusContainer, "escribiendo...");
+
+    /*const arrayPromesas = data.map((personaje) => {
+      return sendMessage(message, personaje)
+    })
+
+    //investigar promise.race
+    Promise.all(arrayPromesas).then((responseSet) => {
+      console.log(responseSet); //iterar json //otro array de promesas, promiseall
+      const arrayPromesas2 = responseSet.map((response) => response.json())
+      Promise.all(arrayPromesas2).then((responseSet2) => {
+        responseSet2.forEach((response2) => {
+          console.log(response2);
+            if (response2.error) {
+              const messageError = response2.error.message;
+              renderError(messageError, errorContainer);
+            } else {
+              const messageResponse = response2.choices[0].message.content;
+              addMessage(messageResponse, "assistant", messagesContainer);
+            }
+        })
+        typingStatus(chars_statusContainer, "none");
+      })
+    })*/
+
+
+    //data.forEach((element) => {
+    const sendMessageWithStatus = (element) => {
+      typingStatus(chars_statusContainer, "escribiendo...");
+      return sendMessage(message, element).then((response) => {
         response.json().then((response2) => {
           console.log(response2);
           if (response2.error) {
             const messageError = response2.error.message;
             renderError(messageError, errorContainer);
           } else {
-            typingStatus(chars_statusContainer, "escribiendo...", element);
             const messageResponse = response2.choices[0].message.content;
-            addMessage(messageResponse, "assistant", messagesContainer);
+            addMessage(messageResponse, "assistant", messagesContainer,element.maincharacter.name);
           }
         });
       });
-    })
+    }
+    //typingStatus(chars_statusContainer, "none", element);
+    //})
 
+    const messagePromises = data.map((element) => sendMessageWithStatus(element));
 
+    Promise.all(messagePromises).then(() => {
+      console.log("todos los mensajes enviados");
+      typingStatus(chars_statusContainer, "none");
+    });
 
   })
 }

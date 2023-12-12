@@ -8,8 +8,9 @@ export function getKey() {
         </div>
 
         <form id="key-form">
-          <input type="text" id="key-input" placeholder="Ingresa una API key"/>
+          <input type="text" id="key-input"/>
           <button type="submit" class="button-send"><img src="https://img.icons8.com/metro/104/757575/long-arrow-up.png" alt="enviar"/></button>
+          <button class="button-delete"><img src="https://img.icons8.com/fluency-systems-filled/96/757575/delete-forever.png" alt="borrar"/></button>
         </form>
       `
   getKeyContainer.setAttribute("id", "get-api");
@@ -26,10 +27,22 @@ export function getKey() {
       keyInput.value = "";
       localStorage.setItem("key", key);
       console.log("getting key");
-      window.location = "/chat";
+      const vista = localStorage.getItem("vistaBtn");
+      window.location = vista;
     })
 
-    
+    const key = localStorage.getItem("key")
+    if (key) {
+      keyInput.setAttribute("placeholder", "***-*****-********-*******");
+    } else {
+      keyInput.setAttribute("placeholder", "Ingresa una API key");
+    }
+
+    const btnClearAPI = document.querySelector(".button-delete");
+    btnClearAPI.addEventListener("click", () => {
+      localStorage.clear();
+    })
+
   });
 
   return getKeyContainer;

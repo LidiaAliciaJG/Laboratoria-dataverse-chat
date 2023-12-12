@@ -72,16 +72,10 @@
   label[for="type-select"],
   label[for="temporality-select"],
   label[for="sort-select"],
-  select {
-    margin: 6px;
-    margin-right: 70px;
-    color: whitesmoke;
-    background-color: black;
-    border-color: white;
-  }
-
+  select, 
   #button-clear {
     margin: 6px;
+    margin-right: 70px;
     color: whitesmoke;
     background-color: black;
     border-color: white;
@@ -361,6 +355,34 @@
   }
 
   /* API KEY */
+
+  #button-api {
+    margin: 6px;
+    color: whitesmoke;
+    background-color: black;
+    border-color: white;
+  }
+
+  .button-delete {
+    height: 45px;
+    width: 45px;
+    border-radius: 100%;
+    background-color: #292929;
+    color: whitesmoke;
+    cursor: pointer;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .button-delete img {
+    height: 35px;
+  }
+
+  .button-delete:hover {
+    background-color: #1A1A1A;
+  }
 
   #get-api {
     background-color: black;

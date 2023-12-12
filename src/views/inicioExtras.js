@@ -36,10 +36,16 @@ const clickToChat = () => {
     const keySaved = localStorage.getItem("key");
     if (!keySaved) {
       window.location = "/api";
+      localStorage.setItem("vistaBtn", "/chat");
     } else {
       window.location = "/chat";
-      localStorage.clear(); // PARA PRUEBAS
     }
+  })
+
+  const btnAPI = document.querySelector("#button-api");
+  btnAPI.addEventListener("click", () => {
+      window.location = "/api";
+      localStorage.setItem("vistaBtn", "/");
   })
 }
 

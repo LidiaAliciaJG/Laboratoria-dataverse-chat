@@ -105,7 +105,6 @@ export const contentChar = (props) => {
 
         typingStatus(char_statusContainer,"escribiendo...",props);
 
-        //setTimeout(() => {
             sendMessage(message, props).then((response) => {
                 response.json().then((response2) => {
                     console.log(response2);
@@ -119,6 +118,5 @@ export const contentChar = (props) => {
                 })
                 typingStatus(char_statusContainer,"en línea",props);
             })
-       // }, 1000);
     })
 }
