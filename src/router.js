@@ -33,9 +33,13 @@ const renderView = (pathname, props = {}) => { //props={} -> truco: si sucede el
   // clear the root element:
   const root = rootElement;
   root.innerHTML = "";
+
+  const urlParams = new URLSearchParams(window.location.search);
+  const id = urlParams.get("id") || "";
+
   // find the correct view in ROUTES for the pathname:
   if (ROUTES[pathname]) {
-    const template = ROUTES[pathname](props);
+    const template = ROUTES[pathname]({ ...props, id });
     // add the view element to the DOM root element
     root.appendChild(template);
   } else {
@@ -48,15 +52,20 @@ const renderView = (pathname, props = {}) => { //props={} -> truco: si sucede el
 
 export const navigateTo = (pathname, props = {}) => {
   // update window history with pushState:
-  const URLvisited = window.location.origin + pathname;
+  let URLvisited = window.location.origin + pathname;
+
+  if (props.id) {
+    URLvisited += `?id=${props.id}`;
+  }
+
   history.pushState({}, "", URLvisited)
   // render the view with the pathname and props (ya creamos la función que lo realiza, solo llamamos):
-  renderView(pathname, props);
+  renderView(pathname, {...props});
 }
 
 
 export const onURLChange = (location, props = {}) => { //CUANDO CAMBIE LA URL, SE TIENE QUE CAMBIAR LA VISTA
   // parse the location for the pathname and search params & convert the search params to an object [Cobra más sentido si la url es compleja. i.e. se utiliza querystringtoobject]
   // render the view with the pathname and object:
-  navigateTo(location, props); //no tiene props/propiedades
+  navigateTo(location, {...props}); //no tiene props/propiedades
 }

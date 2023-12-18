@@ -1,8 +1,7 @@
-//require('dotenv').config();
+import { headTitle } from '../components/title.js';
 import { data } from '../data/dataset.js';
-import { renderCharactersPreview } from '../lib/view.js';
+import { renderCharactersPreview } from '../components/cardsPreview.js';
 
-//const apiKey = process.env.OPENAI_API_KEY;
 const keySaved = localStorage.getItem("key");
 console.log("key guardada:" + keySaved);
 
@@ -13,7 +12,7 @@ function saveHistory(content, role) {
   localStorage.setItem("history", JSON.stringify(messageHistory));
 }
 
-function typingStatus(elementDOM, status, props) {
+function typingStatus(elementDOM, status) {
   //<img src="${props.maincharacter.imageURL}" alt=${props.maincharacter.name}">
   if (status === "none") {
     elementDOM.innerHTML = "";
@@ -22,25 +21,31 @@ function typingStatus(elementDOM, status, props) {
   }
 }
 
-function addMessage(message, user, messagesContainer, characterName) {
+function addMessage(message, user, messagesContainer, characterName, chars_statusContainer) {
   const messageElement = document.createElement("div");
   messageElement.classList.add(user);
-  //messageElement.innerHTML = message;
-  if (user==="assistant") {
-    messageElement.innerHTML = `${characterName}: ${message}`;
+  //const time = (Math.floor(Math.random() * 10)) * 1000;
+  if (user === "assistant") {
+    //typingStatus(chars_statusContainer, "están escribiendo...")
+    //setTimeout(() => {
+    messageElement.innerHTML = message;
+    const nameElement = document.createElement("div");
+    nameElement.classList.add(user + "-name");
+    nameElement.innerHTML = characterName;
+    messagesContainer.appendChild(messageElement);
+    messagesContainer.appendChild(nameElement);
+    //}, time);
   } else {
     messageElement.innerHTML = message;
+    messagesContainer.appendChild(messageElement);
   }
-  
-
-  messagesContainer.appendChild(messageElement);
-  messagesContainer.scrollTo(0, messagesContainer.scrollHeight); //envía la visualización hasta abajo de todo, como whatsapp
-
+  messagesContainer.scrollTo(0, messagesContainer.scrollHeight);
   saveHistory(message, user)
 }
 
+//refactorizar: enviar esta funcion en el componente, dividirla
 function sendMessage(message, element) {
-  const history = JSON.parse(localStorage.getItem("history")) || [];
+  const history = JSON.parse(localStorage.getItem("history")) || []; //meterlo a la funcion como otra llamada en message,element
   const character = element.maincharacter.name;
   const movie = element.name; //documentacion api, obtener id //
   console.log(character, movie);
@@ -56,7 +61,7 @@ function sendMessage(message, element) {
       "max_tokens": 100,
       "messages": [{
         "role": "assistant",
-        "content": `Eres ${character} de la película ${movie}. Aquí tu conversación previa con el usuario: ${history}`,
+        "content": `Interactúa como si fueras ${character} de la película ${movie} con el fin de responder encarnando al personaje frente a preguntas que te realice el usuario. Aquí tu conversación previa con el usuario: ${history}`,
       },
       {
         "role": "user",
@@ -82,8 +87,9 @@ const renderError = (messageError, elementDOM) => {
 export const textchat = () => {
   console.log("Cargando funciones del chat.js");
 
-  const head_title = document.querySelector("title");
-  head_title.textContent = "PELiSINFO | Chat grupal";
+  //const head_title = document.querySelector("title");
+  //head_title.textContent = "PELiSINFO | Chat grupal";
+  headTitle("Chat Grupal")
 
   const dataChar = document.querySelector("#personajes");
   renderChar(data, dataChar);
@@ -102,7 +108,7 @@ export const textchat = () => {
     addMessage(message, "user", messagesContainer, "");
     messageInput.value = ""; //limpiar la caja de texto cada que se envía
 
-    //typingStatus(chars_statusContainer, "escribiendo...");
+    typingStatus(chars_statusContainer, "escribiendo...");
 
     /*const arrayPromesas = data.map((personaje) => {
       return sendMessage(message, personaje)
@@ -130,7 +136,7 @@ export const textchat = () => {
 
     //data.forEach((element) => {
     const sendMessageWithStatus = (element) => {
-      typingStatus(chars_statusContainer, "escribiendo...");
+      //typingStatus(chars_statusContainer, "escribiendo...", element.maincharacter.name);
       return sendMessage(message, element).then((response) => {
         response.json().then((response2) => {
           console.log(response2);
@@ -139,9 +145,12 @@ export const textchat = () => {
             renderError(messageError, errorContainer);
           } else {
             const messageResponse = response2.choices[0].message.content;
-            addMessage(messageResponse, "assistant", messagesContainer,element.maincharacter.name);
+            addMessage(messageResponse, "assistant", messagesContainer, element.maincharacter.name, chars_statusContainer);
+            messagesContainer.scrollTo(0, messagesContainer.scrollHeight);
           }
         });
+      }).catch((error) => {
+        renderError(error, errorContainer);
       });
     }
     //typingStatus(chars_statusContainer, "none", element);
@@ -150,8 +159,10 @@ export const textchat = () => {
     const messagePromises = data.map((element) => sendMessageWithStatus(element));
 
     Promise.all(messagePromises).then(() => {
-      console.log("todos los mensajes enviados");
+      console.log("todos los mensajes recibidos");
+      //setTimeout(() => {
       typingStatus(chars_statusContainer, "none");
+      //}, 8000)
     });
 
   })

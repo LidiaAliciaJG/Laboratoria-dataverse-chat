@@ -1,4 +1,5 @@
-import { renderCharacterInfo } from '../lib/view.js';
+import { headTitle } from '../components/title.js';
+import { renderCharacterInfo } from '../components/cardsCharacter.js';
 
 const keySaved = localStorage.getItem("key");
 console.log("key guardada:" + keySaved);
@@ -11,13 +12,13 @@ function saveHistory(content, role) {
     console.log(messageHistory);
 }
 
-function typingStatus(elementDOM,status,props) {
+function typingStatus(elementDOM, status, props) {
     elementDOM.innerHTML = `
     <img src="${props.maincharacter.imageURL}" alt=${props.maincharacter.name}">
     <div>
     <h5>${props.maincharacter.name}</h5>
     <h6>${status}</h6>
-    </div>`;   
+    </div>`;
 }
 
 function addMessage(message, user, messagesContainer) {
@@ -82,8 +83,10 @@ export const contentChar = (props) => {
     //const propsInfo = data.find(item => item.id=props);
     //console.log(propsInfo);
 
-    const head_title = document.querySelector("title");
-    head_title.textContent = "PELiSINFO | Personaje";
+    //const head_title = document.querySelector("title");
+    //head_title.textContent = "PELiSINFO | Personaje";
+    headTitle("Detalles")
+
 
     const dataChar = document.querySelector("#personaje");
     renderChar(props, dataChar);
@@ -94,7 +97,7 @@ export const contentChar = (props) => {
     const errorContainer = document.querySelector("#errores");
 
     const char_statusContainer = document.querySelector("#character-status");
-    typingStatus(char_statusContainer,"en línea",props);
+    typingStatus(char_statusContainer, "en línea", props);
 
     messageForm.addEventListener("submit", (event) => {
         event.preventDefault();
@@ -103,20 +106,22 @@ export const contentChar = (props) => {
         addMessage(message, "user", messagesContainer);
         messageInput.value = ""; //limpiar la caja de texto cada que se envía
 
-        typingStatus(char_statusContainer,"escribiendo...",props);
+        typingStatus(char_statusContainer, "escribiendo...", props);
 
-            sendMessage(message, props).then((response) => {
-                response.json().then((response2) => {
-                    console.log(response2);
-                    if (response2.error) {
-                        const messageError = response2.error.message;
-                        renderError(messageError, errorContainer);
-                    } else {
-                        const messageResponse = response2.choices[0].message.content;
-                        addMessage(messageResponse, "assistant", messagesContainer);
-                    }
-                })
-                typingStatus(char_statusContainer,"en línea",props);
+        sendMessage(message, props).then((response) => {
+            response.json().then((response2) => {
+                console.log(response2);
+                if (response2.error) {
+                    const messageError = response2.error.message;
+                    renderError(messageError, errorContainer);
+                } else {
+                    const messageResponse = response2.choices[0].message.content;
+                    addMessage(messageResponse, "assistant", messagesContainer);
+                }
             })
+            typingStatus(char_statusContainer, "en línea", props);
+        }).catch((error) => {
+            renderError(error, errorContainer);
+        })
     })
 }

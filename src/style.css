@@ -72,7 +72,7 @@
   label[for="type-select"],
   label[for="temporality-select"],
   label[for="sort-select"],
-  select, 
+  select,
   #button-clear {
     margin: 6px;
     margin-right: 70px;
@@ -108,7 +108,7 @@
   }
 
   .card dd,
-  dt {
+  .card dt {
     margin: 0 10px 0 200px;
   }
 
@@ -169,9 +169,16 @@
     flex-direction: column;
   }
 
+  #personajes {
+    height: 150px;
+    width: 350px;
+    overflow-x: scroll;
+    margin: auto;
+  }
+
   .ul-previewPersonaje {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     list-style: none;
     gap: 20px;
     margin: 0 15px;
@@ -272,7 +279,7 @@
   .assistant {
     padding: 10px;
     border-radius: 5px;
-    margin-bottom: 10px;
+    /*margin-bottom: 10px;*/
     max-width: 80%;
     word-wrap: break-word;
   }
@@ -289,8 +296,16 @@
     align-self: end;
   }
 
+  .assistant-name {
+    margin-bottom: 10px;
+  }
+
   #instrucciones {
     margin: 10px 55px;
+  }
+
+  #instrucciones p {
+    font-size: xx-small;
   }
 
   #errores p {
@@ -314,17 +329,47 @@
     background-color: black;
     padding: 0;
     width: 80%;
-    height: 300px;
+    height: 230px;
     position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  #personaje img {
+    width: 90px;
+    height: 110px;
+    /*position: absolute;
+    margin: 10px;*/
+  }
+
+  #personaje dd,
+  #personaje dt {
+    margin: 0 10px 0 150px;
+  }
+
+  #personaje dt {
+    color: #777777;
+  }
+
+  #personaje dd {
+    color: #e8dede;
+  }
+
+  #portada {
+    display: flex;
+    position: absolute;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px 20px 10px 30px;
+  }
+
+  #portada h4 {
+    margin: 10px 0;
   }
 
   #chatIndividual {
     width: 100%;
-  }
-
-  #personaje img {
-    width: 80px;
-    height: 100px;
   }
 
   #character-status {
@@ -334,9 +379,12 @@
     height: 20px;
     align-items: center;
   }
-  #character-status h5, h6 {
+
+  #character-status h5,
+  h6 {
     margin: 0 10px;
   }
+
   #character-status img {
     width: 30px;
     height: 30px;
@@ -413,10 +461,6 @@
 
   @media (min-width: 1000px) {
 
-    #personajes {
-      width: 50%;
-    }
-
     #chatGrupal {
       width: 45%;
     }
@@ -429,9 +473,47 @@
       width: 60%;
     }
 
-    #chat-grupal, #personaje-detalles {
+    #chat-grupal,
+    #personaje-detalles {
       flex-direction: row;
       justify-content: center;
+      align-items: normal;
+    }
+
+    #personaje {
+      margin-top: 40px;
+      height: 400px;
+    }
+
+    #personaje dl {
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+    }
+
+    #personaje img {
+      width: 130px;
+      height: 140px;
+    }
+
+    #personaje dd,
+    #personaje dt {
+      margin: 0 10px 0 50px;
+    }
+
+    #personaje dd {
+      padding-left: 15px;
+    }
+
+    #portada {
+      flex-direction: column;
+      align-items: center;
+      margin: 10px 20px 10px 30px;
+      position: relative;
+    }
+
+    #portada h4 {
+      margin: 10px 0;
     }
 
     .preview-personaje img {
@@ -442,6 +524,16 @@
     .preview-personaje {
       width: 120px;
       height: 180px;
+    }
+    
+    .ul-previewPersonaje {
+      flex-wrap: wrap;
+    }
+
+    #personajes {
+      height: 450px;
+      width: 50%;
+      overflow: scroll;
     }
 
     #chatGrupal-container {
@@ -458,6 +550,18 @@
 
     #key-form {
       justify-content: space-evenly;
+    }
+
+    #instrucciones p {
+      font-size: x-small;
+    }
+
+    #instrucciones h6 {
+      font-size: x-small;
+    }
+
+    h5 {
+      font-size: small;
     }
 
   }
