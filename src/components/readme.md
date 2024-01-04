@@ -1,1 +1,3 @@
 Esta carpeta contendrá archivos JavaScript que representan componentes reutilizables de tu aplicación. Estos componentes pueden ser elementos de la interfaz de usuario que se utilizan en varias partes de tu aplicación. Organizar tus componentes de esta manera ayuda a mantener un código más modular y reutilizable.
+
+LOS COMPONENTES DEBEN CREAR POR SÍ MISMOS LOS ELEMENTOS DOM QUE VAN A UTILIZAR, ASÍ LOGRANDO SER INDEPENDIENTES DE TODOS LOS DEMÁS ARCHIVOS. SI SE CREAN LOS ELEMENTOS Y SE TIENEN QUE LLAMAR EN LA FUNCIÓN DEL COMPONENTE, NO SE HA LOGRADO OPTIMIZAR, AL CONTRARIO.

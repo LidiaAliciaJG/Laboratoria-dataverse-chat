@@ -36,7 +36,7 @@ const clickToAPI = () => {
 
 
 export const home = () => {
-  console.log("Loading main.js");
+  //console.log("Loading main.js");
 
   headTitle("Inicio");
 

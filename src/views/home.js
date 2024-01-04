@@ -43,7 +43,7 @@ export const inicio = () => {
 
   window.addEventListener("DOMContentLoaded", () => {
     home();
-    console.log("main and cards fully loaded");
+    //console.log("main and cards fully loaded");
   });
 
   return inicioContainer;

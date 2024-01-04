@@ -1,6 +1,12 @@
 import { contentChar } from "./characterExtras.js";
+import { data } from "../data/dataset.js";
 
 export function personaje(props) {
+  //console.log("console de personaje:", props);
+
+  const characterInfo = data.find(item => item.id === props.id);
+  //console.log(characterInfo);
+
 
   const charContainer = document.createElement("section");
   charContainer.innerHTML = `
@@ -48,11 +54,13 @@ export function personaje(props) {
       `
   charContainer.setAttribute("id", "personaje-detalles");
 
-  window.addEventListener("DOMContentLoaded", () => {
-    contentChar(props);
-    console.log("personaje fully loaded");
-    localStorage.removeItem("history");
-  });
+  //window.addEventListener("DOMContentLoaded", () => {
+  contentChar(characterInfo, charContainer);
+  //console.log("personaje fully loaded");
+  localStorage.removeItem("history");
+  //});
+
+
 
   return charContainer;
 

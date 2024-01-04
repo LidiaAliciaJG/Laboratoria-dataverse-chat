@@ -51,7 +51,7 @@ export function chatgrupal() {
 
   window.addEventListener("DOMContentLoaded", () => {
     textchat();
-    console.log("chat fully loaded");
+    //console.log("chat fully loaded");
     localStorage.removeItem("history");
   });
 

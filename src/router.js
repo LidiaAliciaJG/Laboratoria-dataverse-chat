@@ -23,11 +23,14 @@ export const setRoutes = (newRoutesValue) => {
 }
 
 //OPCIONAL: [Se utiliza para crear la url compleja, o solo se puede utilizar una url básica de path sin más parametros]
-//const queryStringToObject = (queryString) => {
-// convert query string to URLSearchParams
-// convert URLSearchParams to an object
-// return the object
-//}
+export const queryStringToObject = (queryString) => {
+  // convert query string to URLSearchParams
+  // convert URLSearchParams to an object
+
+  const urlParams = new URLSearchParams(queryString); //string del url -> searhParams objeto
+  const urlResponse = Object.fromEntries(urlParams); //objeto de la informacion requerida
+  return urlResponse;
+}
 
 const renderView = (pathname, props = {}) => { //props={} -> truco: si sucede el caso que no se ingresa un segundo valor a la función, se define que sea objeto vacío para evitar que sea indefinido u otro error
   // clear the root element:
@@ -60,12 +63,15 @@ export const navigateTo = (pathname, props = {}) => {
 
   history.pushState({}, "", URLvisited)
   // render the view with the pathname and props (ya creamos la función que lo realiza, solo llamamos):
-  renderView(pathname, {...props});
+  renderView(pathname, props);
 }
 
 
 export const onURLChange = (location, props = {}) => { //CUANDO CAMBIE LA URL, SE TIENE QUE CAMBIAR LA VISTA
   // parse the location for the pathname and search params & convert the search params to an object [Cobra más sentido si la url es compleja. i.e. se utiliza querystringtoobject]
   // render the view with the pathname and object:
-  navigateTo(location, {...props}); //no tiene props/propiedades
+  //console.log("onurlchange:", location);
+  //console.log("onurlchange:", props);
+  navigateTo(location, props); //no tiene props/propiedades
+  //renderView(location, props)
 }

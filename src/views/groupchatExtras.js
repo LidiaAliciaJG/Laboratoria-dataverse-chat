@@ -1,16 +1,7 @@
 import { headTitle } from '../components/title.js';
 import { data } from '../data/dataset.js';
 import { renderCharactersPreview } from '../components/cardsPreview.js';
-
-const keySaved = localStorage.getItem("key");
-console.log("key guardada:" + keySaved);
-
-function saveHistory(content, role) {
-  const elementHistory = `{ role: "${role}", content: "${content}" },`
-  const messageHistory = JSON.parse(localStorage.getItem("history")) || [];
-  messageHistory.push(elementHistory);
-  localStorage.setItem("history", JSON.stringify(messageHistory));
-}
+import { renderError, saveHistory, sendMessage } from '../components/chat.js';
 
 function typingStatus(elementDOM, status) {
   //<img src="${props.maincharacter.imageURL}" alt=${props.maincharacter.name}">
@@ -21,7 +12,8 @@ function typingStatus(elementDOM, status) {
   }
 }
 
-function addMessage(message, user, messagesContainer, characterName, chars_statusContainer) {
+//function addMessage(message, user, messagesContainer, characterName, chars_statusContainer) {
+function addMessage(message, user, messagesContainer, characterName) {
   const messageElement = document.createElement("div");
   messageElement.classList.add(user);
   //const time = (Math.floor(Math.random() * 10)) * 1000;
@@ -44,48 +36,16 @@ function addMessage(message, user, messagesContainer, characterName, chars_statu
 }
 
 //refactorizar: enviar esta funcion en el componente, dividirla
-function sendMessage(message, element) {
-  const history = JSON.parse(localStorage.getItem("history")) || []; //meterlo a la funcion como otra llamada en message,element
-  const character = element.maincharacter.name;
-  const movie = element.name; //documentacion api, obtener id //
-  console.log(character, movie);
-  const response = fetch("https://api.openai.com/v1/chat/completions", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      "Authorization": `Bearer ${keySaved}`
-    },
-    body: JSON.stringify({
-      "model": "gpt-3.5-turbo",
-      "temperature": 0.7, //nivel de creatividad 0 a 1
-      "max_tokens": 100,
-      "messages": [{
-        "role": "assistant",
-        "content": `Interactúa como si fueras ${character} de la película ${movie} con el fin de responder encarnando al personaje frente a preguntas que te realice el usuario. Aquí tu conversación previa con el usuario: ${history}`,
-      },
-      {
-        "role": "user",
-        "content": `${message}`,
-      }]
-    })
-  });
-  return response;
-}
+
 
 const renderChar = (dataset, elementDOM) => {
   elementDOM.innerHTML = "";
   elementDOM.appendChild(renderCharactersPreview(dataset));
 };
 
-const renderError = (messageError, elementDOM) => {
-  elementDOM.innerHTML = "";
-  const paragraph = document.createElement("p");
-  paragraph.innerHTML = "<strong>Error - </strong>" + messageError;
-  elementDOM.appendChild(paragraph);
-};
 
 export const textchat = () => {
-  console.log("Cargando funciones del chat.js");
+  //console.log("Cargando funciones del chat.js");
 
   //const head_title = document.querySelector("title");
   //head_title.textContent = "PELiSINFO | Chat grupal";
@@ -100,6 +60,7 @@ export const textchat = () => {
   const errorContainer = document.querySelector("#errores");
 
   const chars_statusContainer = document.querySelector("#characters-status");
+
 
   messageForm.addEventListener("submit", (event) => {
     event.preventDefault();
@@ -133,19 +94,19 @@ export const textchat = () => {
       })
     })*/
 
-
     //data.forEach((element) => {
     const sendMessageWithStatus = (element) => {
       //typingStatus(chars_statusContainer, "escribiendo...", element.maincharacter.name);
       return sendMessage(message, element).then((response) => {
         response.json().then((response2) => {
-          console.log(response2);
+          //console.log(response2);
           if (response2.error) {
             const messageError = response2.error.message;
             renderError(messageError, errorContainer);
           } else {
             const messageResponse = response2.choices[0].message.content;
             addMessage(messageResponse, "assistant", messagesContainer, element.maincharacter.name, chars_statusContainer);
+
             messagesContainer.scrollTo(0, messagesContainer.scrollHeight);
           }
         });
@@ -159,7 +120,7 @@ export const textchat = () => {
     const messagePromises = data.map((element) => sendMessageWithStatus(element));
 
     Promise.all(messagePromises).then(() => {
-      console.log("todos los mensajes recibidos");
+      //console.log("todos los mensajes recibidos");
       //setTimeout(() => {
       typingStatus(chars_statusContainer, "none");
       //}, 8000)

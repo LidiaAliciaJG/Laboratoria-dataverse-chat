@@ -26,7 +26,7 @@ export function getKey() {
       if (!key) return;
       keyInput.value = "";
       localStorage.setItem("key", key);
-      console.log("getting key");
+      //console.log("getting key");
       const vista = localStorage.getItem("vistaBtn");
       window.location = vista;
     })

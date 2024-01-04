@@ -30,7 +30,7 @@ const valueTypeNone = '';
 const filterByTemp = 'temporality';
 const valueTemp1 = 'actual';
 const valueTemp2 = 'anterior';
-const valueTempNone = 'elegir';
+const valueTempNone = '';
 
 
 describe('Función filterData:', () => {

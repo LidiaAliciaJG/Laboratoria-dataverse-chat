@@ -1,4 +1,4 @@
-import { onURLChange, setRootElement, setRoutes } from './router.js';
+import { onURLChange, setRootElement, setRoutes, queryStringToObject } from './router.js';
 import { inicio } from './views/home.js';
 import { personaje } from './views/characterChat.js';
 import { chatgrupal } from './views/groupChat.js';
@@ -21,11 +21,13 @@ const viewContainer = document.getElementById("root");
 setRootElement(viewContainer);
 
 document.addEventListener("DOMContentLoaded", (event) => {
-  console.log("DOM fully loaded and parsed");
-  const propsaved = localStorage.getItem("prop-character"); //obtener el string guardado
-  const prop = JSON.parse(propsaved); //regresar el string a objeto
-  onURLChange(event.target.location.pathname, prop);
-  console.log(event.target.location.pathname, prop);
+  //console.log("DOM fully loaded and parsed"); //PRIMER INGRESO DEL USUARIO
+  //const propsaved = localStorage.getItem("prop-character"); //obtener el string guardado
+  //const prop = JSON.parse(propsaved); //regresar el string a objeto
+  //console.log(event.target.location);
+  const props = queryStringToObject(event.target.location.search);
+  onURLChange(event.target.location.pathname, props);
+  
 })
 
 const logotoHome = document.querySelector("header");

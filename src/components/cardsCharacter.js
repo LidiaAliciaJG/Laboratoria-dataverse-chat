@@ -1,7 +1,7 @@
 export const renderCharacterInfo = (element) => {
-    const itemContainerPreview = document.createElement("dl");
-    itemContainerPreview.setAttribute("id", element.id);
-      itemContainerPreview.innerHTML = `
+  const itemContainerPreview = document.createElement("dl");
+  itemContainerPreview.setAttribute("id", element.id);
+  itemContainerPreview.innerHTML = `
       <div id="portada">
       <img src=${element.maincharacter.imageURL} alt=${element.maincharacter.name} />
       <h4>${element.maincharacter.name}</h4>
@@ -12,5 +12,5 @@ export const renderCharacterInfo = (element) => {
       <dt>Dato curioso:</dt><dd itemprop="funFact">${element.maincharacter.funFact}</dd>
       <dt>Actor:</dt><dd itemprop="actor">${element.maincharacter.actor}</dd>
       `
-      return itemContainerPreview;
-  }
+  return itemContainerPreview;
+}
