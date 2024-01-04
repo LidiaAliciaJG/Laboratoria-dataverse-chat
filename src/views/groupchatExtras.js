@@ -98,18 +98,18 @@ export const textchat = () => {
     const sendMessageWithStatus = (element) => {
       //typingStatus(chars_statusContainer, "escribiendo...", element.maincharacter.name);
       return sendMessage(message, element).then((response) => {
-        response.json().then((response2) => {
+        //response.json().then((response2) => {
           //console.log(response2);
-          if (response2.error) {
-            const messageError = response2.error.message;
+          if (response.error) {
+            const messageError = response.error.message;
             renderError(messageError, errorContainer);
           } else {
-            const messageResponse = response2.choices[0].message.content;
+            const messageResponse = response.choices[0].message.content;
             addMessage(messageResponse, "assistant", messagesContainer, element.maincharacter.name, chars_statusContainer);
 
             messagesContainer.scrollTo(0, messagesContainer.scrollHeight);
           }
-        });
+        //});
       }).catch((error) => {
         renderError(error, errorContainer);
       });

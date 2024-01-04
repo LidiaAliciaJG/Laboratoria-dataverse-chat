@@ -20,8 +20,8 @@ describe('Endpoint de openIA', () => {
     expect(global.fetch).toBeCalledWith('https://api.openai.com/v1/chat/completions', {
       method: 'POST',
       headers: {
+        'Content-Type': 'application/json',
         'Authorization': `Bearer 12456`,
-        'Content-Type': 'application/json'
       },
       body: JSON.stringify({
         'model': 'gpt-3.5-turbo',
@@ -48,10 +48,9 @@ describe('Endpoint de openIA', () => {
 
 
     return chatCompletions('12345', [{ role: 'user', content: 'foo' }])
-      .then((resolved) => resolved.json())
-      .then((resolved2) => {
-        expect(resolved2).toBe(response);
-        //})
+      //.then((resolved) => resolved.json())
+      .then((resolved) => {
+        expect(resolved).toBe(responseTest);
       });
   });
 })

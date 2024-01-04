@@ -1,3 +1,5 @@
+import { renderError } from "./chat.js";
+
 export const chatCompletions = (apikey, data) => {
 
   const bodyRequest = {
@@ -7,13 +9,22 @@ export const chatCompletions = (apikey, data) => {
     "messages": data
   }
 
-  const response = fetch("https://api.openai.com/v1/chat/completions", {
+  //const response = fetch("https://api.openai.com/v1/chat/completions", {
+  return fetch("https://api.openai.com/v1/chat/completions", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
       "Authorization": `Bearer ${apikey}`
     },
     body: JSON.stringify(bodyRequest)
-  });
-  return response;
+  }).then((response) => {
+    return response.json();
+  })
+
+  /*response.then((resolved) => resolved.json())
+  .then((resolved2) => {
+    console.log(resolved2);
+  });*/
+
+  //return response;
 }

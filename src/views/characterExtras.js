@@ -61,7 +61,7 @@ export const contentChar = (props, elementDOM) => {
 
     typingStatus(char_statusContainer, "escribiendo...", props);
 
-    sendMessage(message, props).then((response) => {
+    /*sendMessage(message, props).then((response) => {
       response.json().then((response2) => {
         //console.log(response2);
         if (response2.error) {
@@ -73,8 +73,21 @@ export const contentChar = (props, elementDOM) => {
         }
       })
       typingStatus(char_statusContainer, "en línea", props);
-    }).catch((error) => {
-      renderError(error, errorContainer);
-    })
+    */
+    sendMessage(message, props).then((resolved) => {
+    if (resolved.error) {
+      const messageError = resolved.error.message;
+      renderError(messageError, errorContainer);
+    } else {
+      const messageResponse = resolved.choices[0].message.content;
+      addMessage(messageResponse, "assistant", messagesContainer);
+    }
+  }).catch((error) => {
+    const errorContainer = elementDOM.querySelector("#errores");
+    renderError(error, errorContainer);
+    console.log("se ha informado al usuario de un error");
+    //DUDA: ES CORRECTO? CÓMO PODRÍA PROBARLO?
+  });
+    typingStatus(char_statusContainer, "en línea", props);
   })
 }

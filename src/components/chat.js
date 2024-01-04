@@ -24,7 +24,7 @@ export function sendMessage(message, element) {
     "role": "user",
     "content": `${message}`
   }]
-  return chatCompletions(keySaved, dataChat)
+  return chatCompletions(keySaved, dataChat) //**PILL DE JC: data debería ser el historial**
 }
 
 export const renderError = (messageError, elementDOM) => {
