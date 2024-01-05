@@ -1,4 +1,4 @@
-import { chatCompletions } from "./chatResponse.js";
+import { chatCompletions } from "../lib/chatResponse.js";
 
 const keySaved = localStorage.getItem("key");
 //console.log("key guardada:" + keySaved);

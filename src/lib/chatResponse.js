@@ -1,5 +1,3 @@
-import { renderError } from "./chat.js";
-
 export const chatCompletions = (apikey, data) => {
 
   const bodyRequest = {
