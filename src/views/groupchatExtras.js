@@ -35,8 +35,6 @@ function addMessage(message, user, messagesContainer, characterName) {
   saveHistory(message, user)
 }
 
-//refactorizar: enviar esta funcion en el componente, dividirla
-
 
 const renderChar = (dataset, elementDOM) => {
   elementDOM.innerHTML = "";
@@ -99,16 +97,16 @@ export const textchat = () => {
       //typingStatus(chars_statusContainer, "escribiendo...", element.maincharacter.name);
       return sendMessage(message, element).then((response) => {
         //response.json().then((response2) => {
-          //console.log(response2);
-          if (response.error) {
-            const messageError = response.error.message;
-            renderError(messageError, errorContainer);
-          } else {
-            const messageResponse = response.choices[0].message.content;
-            addMessage(messageResponse, "assistant", messagesContainer, element.maincharacter.name, chars_statusContainer);
+        //console.log(response2);
+        if (response.error) {
+          const messageError = response.error.message;
+          renderError(messageError, errorContainer);
+        } else {
+          const messageResponse = response.choices[0].message.content;
+          addMessage(messageResponse, "assistant", messagesContainer, element.maincharacter.name, chars_statusContainer);
 
-            messagesContainer.scrollTo(0, messagesContainer.scrollHeight);
-          }
+          messagesContainer.scrollTo(0, messagesContainer.scrollHeight);
+        }
         //});
       }).catch((error) => {
         renderError(error, errorContainer);

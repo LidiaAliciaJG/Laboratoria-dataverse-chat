@@ -1,4 +1,4 @@
-import { chatCompletions } from "../src/components/chatResponse.js";
+import { chatCompletions } from "../src/lib/chatResponse.js";
 
 const OpenIAResponse = jest.fn();
 
@@ -50,7 +50,7 @@ describe('Endpoint de openIA', () => {
     return chatCompletions('12345', [{ role: 'user', content: 'foo' }])
       //.then((resolved) => resolved.json())
       .then((resolved) => {
-        expect(resolved).toBe(responseTest);
+        expect(resolved).toBe(response);
       });
   });
 })
