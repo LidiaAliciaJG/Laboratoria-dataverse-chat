@@ -42,22 +42,22 @@ const renderChar = (dataset, elementDOM) => {
 };
 
 
-export const textchat = () => {
+export const textchat = (elementDOM) => {
   //console.log("Cargando funciones del chat.js");
 
   //const head_title = document.querySelector("title");
   //head_title.textContent = "PELiSINFO | Chat grupal";
   headTitle("Chat Grupal")
 
-  const dataChar = document.querySelector("#personajes");
+  const dataChar = elementDOM.querySelector("#personajes");
   renderChar(data, dataChar);
 
-  const messagesContainer = document.querySelector("#messages");
-  const messageForm = document.querySelector("#message-form");
-  const messageInput = document.querySelector("#message-input");
-  const errorContainer = document.querySelector("#errores");
+  const messagesContainer = elementDOM.querySelector("#messages");
+  const messageForm = elementDOM.querySelector("#message-form");
+  const messageInput = elementDOM.querySelector("#message-input");
+  const errorContainer = elementDOM.querySelector("#errores");
 
-  const chars_statusContainer = document.querySelector("#characters-status");
+  const chars_statusContainer = elementDOM.querySelector("#characters-status");
 
 
   messageForm.addEventListener("submit", (event) => {

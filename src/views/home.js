@@ -1,6 +1,7 @@
 import { home } from "./homeExtras.js";
 
 export const inicio = () => {
+
   const inicioContainer = document.createElement("section");
   inicioContainer.innerHTML = `
     <nav>
@@ -33,7 +34,7 @@ export const inicio = () => {
 
     <div id="estadisticas">
         <p></p>
-        <button id="button-chat">Chat Grupal</button>
+        <button id="button-chat" data-testid="chat">Chat Grupal</button>
     </div>
 
     <div id="tarjetas">
@@ -41,10 +42,10 @@ export const inicio = () => {
       `
   inicioContainer.setAttribute("id", "inicio");
 
-  window.addEventListener("DOMContentLoaded", () => {
-    home();
-    //console.log("main and cards fully loaded");
-  });
+  //window.addEventListener("DOMContentLoaded", () => {
+  home(inicioContainer);
+  //console.log("main and cards fully loaded");
+  //});
 
   return inicioContainer;
 };

@@ -29,13 +29,14 @@ export const renderCards = (data) => {
       //console.log("Click on: " + cardSelected);
       //localStorage.setItem("prop-character",cardSelected);//localStorage solo acepta string
       const keySaved = localStorage.getItem("key");
+      const props = { "id": element.id };
       if (!keySaved) {
-        window.location = "/api";
+        //window.location = "/api";
+        navigateTo("/api", props)
         localStorage.setItem("vistaBtn", "/personaje");
       } else {
         //window.location = "/personaje"; //recarga la pagina nuevamente
         //onURLChange("/personaje", props);
-        const props = { "id": element.id };
         navigateTo("/personaje", props)
       }
     })

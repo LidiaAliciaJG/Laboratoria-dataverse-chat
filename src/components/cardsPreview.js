@@ -1,3 +1,5 @@
+import { navigateTo } from "../router.js";
+
 export const renderCharactersPreview = (data) => {
   const preview = document.createElement("ul");
   preview.classList.add("ul-previewPersonaje");
@@ -12,10 +14,12 @@ export const renderCharactersPreview = (data) => {
       `
 
     itemPreview.addEventListener("click", () => {
-      const cardSelected = JSON.stringify(element);
+      //const cardSelected = JSON.stringify(element);
       //console.log("Click on: " + cardSelected);
-      localStorage.setItem("prop-character", cardSelected);
-      window.location = "/personaje";
+      //localStorage.setItem("prop-character", cardSelected);
+      //window.location = "/personaje";
+      const props = { "id": element.id };
+      navigateTo("/personaje", props)
     })
 
     itemPreview.appendChild(itemContainerPreview);

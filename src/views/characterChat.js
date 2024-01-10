@@ -15,14 +15,14 @@ export function personaje(props) {
 
   <div id="chatIndividual"> 
 
-    <div id="chatIndividual-container">
+    <div id="chatIndividual-container" data-testid="chat-element">
         <div id="character-status">
         </div>
 
         <div id="messages">
         </div>
 
-        <form id="message-form">
+        <form id="message-form" data-testid="message-element">
           <input type="text" id="message-input" placeholder="Escribe un mensaje..."/>
           <button class="button-send"><img src="https://img.icons8.com/metro/104/757575/long-arrow-up.png" alt="enviar"/></button>
         </form>

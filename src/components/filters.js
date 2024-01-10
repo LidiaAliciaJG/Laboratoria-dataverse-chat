@@ -3,8 +3,8 @@ import { data } from '../data/dataset.js';
 import { renderStats } from '../components/stats.js'
 import { renderCards } from '../components/cardsMovie.js';
 
-export const renderData = (dataset) => {
-  const dataList = document.querySelector("#tarjetas");
+export const renderData = (dataset, elementDOM) => {
+  const dataList = elementDOM.querySelector("#tarjetas");
   dataList.innerHTML = "";
   dataList.appendChild(renderCards(dataset));
 };
@@ -18,7 +18,7 @@ export const resetFilters = (filterState, filterType, filterDate, sortName) => {
   sortName.value = "none";
 };
 
-export const filters = (filterType, filterDate, filterState) => {
+export const filters = (filterType, filterDate, filterState, elementDOM) => {
 
   filterType.addEventListener("change", function (event) {
     const filterBy = filterType.name;
@@ -27,14 +27,14 @@ export const filters = (filterType, filterDate, filterState) => {
     filterState.filterByTypeValue = value;
     const renderFilter = filterData(data, filterBy, value);
     if (filterState.filterByDate === "") {
-      renderData(renderFilter);
-      renderStats(renderFilter);
+      renderData(renderFilter, elementDOM);
+      renderStats(renderFilter, elementDOM);
     } else {
       const filterBy = filterState.filterByDate;
       const value = filterState.filterByDateValue;
       const renderFilter2 = filterData(renderFilter, filterBy, value);
-      renderData(renderFilter2);
-      renderStats(renderFilter2);
+      renderData(renderFilter2, elementDOM);
+      renderStats(renderFilter2, elementDOM);
     }
   });
 
@@ -45,36 +45,36 @@ export const filters = (filterType, filterDate, filterState) => {
     filterState.filterByDateValue = value;
     const renderFilter = filterData(data, filterBy, value);
     if (filterState.filterByType === "") {
-      renderData(renderFilter);
-      renderStats(renderFilter);
+      renderData(renderFilter, elementDOM);
+      renderStats(renderFilter, elementDOM);
     } else {
       const filterBy = filterState.filterByType;
       const value = filterState.filterByTypeValue;
       const renderFilter2 = filterData(renderFilter, filterBy, value);
-      renderData(renderFilter2);
-      renderStats(renderFilter2);
+      renderData(renderFilter2, elementDOM);
+      renderStats(renderFilter2, elementDOM);
     }
   });
 }
 
-export const sorts = (sortName, filterState) =>
+export const sorts = (sortName, filterState, elementDOM) =>
   sortName.addEventListener("change", function (event) {
     const sortOrder = event.target.value;
     filterState.sortOrder = sortOrder;
     const sortBy = sortName.name;
     const sortedData = sortData(data, sortBy, sortOrder);
     if (filterState.filterByType === "" && filterState.filterByDate === "") {
-      renderData(sortedData);
+      renderData(sortedData, elementDOM);
     } else if (filterState.filterByType === "") {
       const filterByDate = filterState.filterByDate;
       const valueDate = filterState.filterByDateValue;
       const renderFilterLast = filterData(data, filterByDate, valueDate);
-      renderData(renderFilterLast);
+      renderData(renderFilterLast, elementDOM);
     } else if (filterState.filterByDate === "") {
       const filterByType = filterState.filterByType;
       const valueType = filterState.filterByTypeValue;
       const renderFilterLast = filterData(data, filterByType, valueType);
-      renderData(renderFilterLast);
+      renderData(renderFilterLast, elementDOM);
     } else {
       const filterByType = filterState.filterByType;
       const valueType = filterState.filterByTypeValue;
@@ -82,7 +82,7 @@ export const sorts = (sortName, filterState) =>
       const filterByDate = filterState.filterByDate;
       const valueDate = filterState.filterByDateValue;
       const renderFilterLast = filterData(renderFilterType, filterByDate, valueDate);
-      renderData(renderFilterLast);
+      renderData(renderFilterLast, elementDOM);
     }
   });
 

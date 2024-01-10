@@ -1,4 +1,7 @@
-export function getKey() {
+import { headTitle } from "../components/title.js";
+import { navigateTo } from "../router.js";
+
+export function getKey(dataprops) {
   const getKeyContainer = document.createElement("section");
   getKeyContainer.innerHTML = `
         <div id="key-instruction">
@@ -7,7 +10,7 @@ export function getKey() {
         <p>Para obtenerla, debes crear una cuenta en OpenAI e ingresar a https://platform.openai.com/api-keys.</p>
         </div>
 
-        <form id="key-form">
+        <form id="key-form" data-testid="form-element">
           <input type="text" id="key-input"/>
           <button type="submit" class="button-send"><img src="https://img.icons8.com/metro/104/757575/long-arrow-up.png" alt="enviar"/></button>
           <button class="button-delete"><img src="https://img.icons8.com/fluency-systems-filled/96/757575/delete-forever.png" alt="borrar"/></button>
@@ -15,35 +18,38 @@ export function getKey() {
       `
   getKeyContainer.setAttribute("id", "get-api");
 
-  window.addEventListener("DOMContentLoaded", () => {
+  //window.addEventListener("DOMContentLoaded", () => {
 
-    const keyForm = document.querySelector("#key-form");
-    const keyInput = document.querySelector("#key-input");
+  headTitle("Apikey");
 
-    keyForm.addEventListener("submit", (event) => {
-      event.preventDefault();
-      const key = keyInput.value.trim();
-      if (!key) return;
-      keyInput.value = "";
-      localStorage.setItem("key", key);
-      //console.log("getting key");
-      const vista = localStorage.getItem("vistaBtn");
-      window.location = vista;
-    })
+  const keyForm = getKeyContainer.querySelector("#key-form");
+  const keyInput = getKeyContainer.querySelector("#key-input");
 
-    const key = localStorage.getItem("key")
-    if (key) {
-      keyInput.setAttribute("placeholder", "***-*****-********-*******");
-    } else {
-      keyInput.setAttribute("placeholder", "Ingresa una API key");
-    }
+  keyForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const key = keyInput.value.trim();
+    if (!key) return;
+    keyInput.value = "";
+    localStorage.setItem("key", key);
+    //console.log("getting key");
+    const vista = localStorage.getItem("vistaBtn");
+    //window.location = vista;
+    navigateTo(vista, dataprops)
+  })
 
-    const btnClearAPI = document.querySelector(".button-delete");
-    btnClearAPI.addEventListener("click", () => {
-      localStorage.clear();
-    })
+  const key = localStorage.getItem("key")
+  if (key) {
+    keyInput.setAttribute("placeholder", "***-*****-********-*******");
+  } else {
+    keyInput.setAttribute("placeholder", "Ingresa una API key");
+  }
 
-  });
+  const btnClearAPI = getKeyContainer.querySelector(".button-delete");
+  btnClearAPI.addEventListener("click", () => {
+    localStorage.clear();
+  })
+
+  //});
 
   return getKeyContainer;
 }

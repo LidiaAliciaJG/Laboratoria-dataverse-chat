@@ -7,7 +7,7 @@ export function chatgrupal() {
     </div>
 
     <div id="chatGrupal">
-      <div id="chatGrupal-container">
+      <div id="chatGrupal-container" data-testid="chat-element">
         <div id="messages">
         </div>
 
@@ -15,7 +15,7 @@ export function chatgrupal() {
           <div id="characters-status">
           </div>
 
-          <form id="message-form">
+          <form id="message-form" data-testid="message-element">
             <input type="text" id="message-input" placeholder="Escribe un mensaje..."/>
             <button class="button-send"><img src="https://img.icons8.com/metro/104/757575/long-arrow-up.png" alt="enviar"/></button>
           </form>
@@ -49,11 +49,11 @@ export function chatgrupal() {
       `
   chatgContainer.setAttribute("id", "chat-grupal");
 
-  window.addEventListener("DOMContentLoaded", () => {
-    textchat();
-    //console.log("chat fully loaded");
-    localStorage.removeItem("history");
-  });
+  //window.addEventListener("DOMContentLoaded", () => {
+  textchat(chatgContainer);
+  //console.log("chat fully loaded");
+  localStorage.removeItem("history");
+  //});
 
   return chatgContainer;
 }

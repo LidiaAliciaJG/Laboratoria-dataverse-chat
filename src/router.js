@@ -37,8 +37,9 @@ const renderView = (pathname, props = {}) => { //props={} -> truco: si sucede el
   const root = rootElement;
   root.innerHTML = "";
 
-  const urlParams = new URLSearchParams(window.location.search);
-  const id = urlParams.get("id") || "";
+  //const urlParams = new URLSearchParams(window.location.search);
+  //const id = urlParams.get("id") || "";
+  const id = queryStringToObject(window.location.search).id;
 
   // find the correct view in ROUTES for the pathname:
   if (ROUTES[pathname]) {
@@ -61,7 +62,8 @@ export const navigateTo = (pathname, props = {}) => {
     URLvisited += `?id=${props.id}`;
   }
 
-  history.pushState({}, "", URLvisited)
+  window.history.pushState({}, "", URLvisited)
+  console.log("pushState"+ URLvisited);
   // render the view with the pathname and props (ya creamos la función que lo realiza, solo llamamos):
   renderView(pathname, props);
 }
@@ -72,6 +74,6 @@ export const onURLChange = (location, props = {}) => { //CUANDO CAMBIE LA URL, S
   // render the view with the pathname and object:
   //console.log("onurlchange:", location);
   //console.log("onurlchange:", props);
-  navigateTo(location, props); //no tiene props/propiedades
-  //renderView(location, props)
+  //navigateTo(location, props);
+  renderView(location, props);
 }
