@@ -19,19 +19,17 @@ Esta Single Page Application (SPA) permite visualizar un conjunto de datos cuya 
 ## Descripción del proyecto
 La SPA realizada se ha desarrollado para ser utilizada por un usuario que desee encontrar diversos datos sobre películas. Este proyecto es aplicable en el ámbito del entretenimiento para un usuario que disfrute de conocer más sobre películas, así como en el ámbito académico de un estudiante que desee recabar información sobre el arte del cine.
 
-![Definicion de producto](https://github.com/LidiaAliciaJG/Laboratoria-dataverse/blob/5559e14614f99dea2a75926fa49f1223a883f35b/src/imagenes/definicionproducto.png)
+![Definicion de producto](https://github.com/LidiaAliciaJG/Laboratoria-dataverse-chat/blob/55a2f4448384b1fd06126705fd97f3ebb7683cb2/src/images/readme/DefiniciondeProducto.png)
 
 Con el fin de descubrir las necesidades el usuario, se realizaron 5 historias de usuario.
-![Historias de usuario](https://github.com/LidiaAliciaJG/Laboratoria-dataverse/blob/5559e14614f99dea2a75926fa49f1223a883f35b/src/imagenes/historiasdeusuario.png)
+![Historias de usuario](https://github.com/LidiaAliciaJG/Laboratoria-dataverse-chat/blob/55a2f4448384b1fd06126705fd97f3ebb7683cb2/src/images/readme/HistoriasdeUsuario.png)
 
 A partir de lo anterior, se realizó un prototipado de alta fidelidad con interacción a través de Figma. A continuación se encuentra la versión mobile creado con el fin de seguir la metodología Mobile First:
 [Prototipo de alta resolución para móviles](https://www.figma.com/proto/KfLFmZHdVpAyXlQqDKmcKV/Dataverse-Chat-Project?type=design&node-id=393-361&t=lPhM18fH6y4CJzXe-1&scaling=scale-down&page-id=393%3A23&starting-point-node-id=393%3A361&mode=design)
 
-Para su desarrollo se realizó una planeación con los objetivos que se pueden observar en las siguientes imágenes, éstos se plantearon en la organización de la definición de terminado según los requerimientos del bootcamp y los descubiertos por las historias de usuario.
+Para su desarrollo se realizó una planeación con los objetivos que se pueden observar en la siguiente imagen, éstos se plantearon en la organización según los requerimientos del bootcamp y por las historias de usuario.
 
-![Planificación del proyecto](https://github.com/LidiaAliciaJG/Laboratoria-dataverse/blob/5559e14614f99dea2a75926fa49f1223a883f35b/src/imagenes/planeacion.png)
-
-![Definicion de terminado](https://github.com/LidiaAliciaJG/Laboratoria-dataverse/blob/5559e14614f99dea2a75926fa49f1223a883f35b/src/imagenes/definicionterminado.png)
+![Definicion de terminado](https://github.com/LidiaAliciaJG/Laboratoria-dataverse-chat/blob/55a2f4448384b1fd06126705fd97f3ebb7683cb2/src/images/readme/DefiiniciondeTerminado.png)
 
 Tras el inicio del proyecto se eligió la temática de películas, por lo que, con apoyo de ChatGPT, se generaron 24 datos cuyas características eran basadas en 4 géneros y los siguientes:
 ![Prompt utilizado](https://github.com/LidiaAliciaJG/Laboratoria-dataverse/blob/5559e14614f99dea2a75926fa49f1223a883f35b/src/imagenes/Laboratoria%20Prototipos.gif)
@@ -57,7 +55,7 @@ Este proyecto trabaja con asíncronía en JavaScript y contiene responsividad en
 ## Deploy
 La aplicación se encuentra publicado a través de Netlify, accesible a todo usuario: [Link](dataverse-chat-by-lajg.netlify.app/).
 
-![Vista del sitio web](https://github.com/LidiaAliciaJG/Laboratoria-dataverse/blob/5559e14614f99dea2a75926fa49f1223a883f35b/src/imagenes/vista.png)
+![Vista del sitio web](https://github.com/LidiaAliciaJG/Laboratoria-dataverse-chat/blob/55a2f4448384b1fd06126705fd97f3ebb7683cb2/src/images/readme/VistaPrevia.gif)
 
 
 ## Pruebas
