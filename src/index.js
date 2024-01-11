@@ -21,7 +21,7 @@ const viewContainer = document.getElementById("root");
 setRootElement(viewContainer);
 
 document.addEventListener("DOMContentLoaded", (event) => {
-  console.log("DOM fully loaded and parsed"); //PRIMER INGRESO DEL USUARIO
+  //console.log("DOM fully loaded and parsed"); //PRIMER INGRESO DEL USUARIO
   //const propsaved = localStorage.getItem("prop-character"); //obtener el string guardado
   //const prop = JSON.parse(propsaved); //regresar el string a objeto
   //console.log(event.target.location);
@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
 window.addEventListener("popstate", (event) => {
   const props = queryStringToObject(event.target.location.search);
   onURLChange(event.target.location.pathname, props);
-  console.log("popstate done");
+  //console.log("popstate done");
 })
 
 const logotoHome = document.querySelector("header");

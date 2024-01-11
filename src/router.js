@@ -63,7 +63,7 @@ export const navigateTo = (pathname, props = {}) => {
   }
 
   window.history.pushState({}, "", URLvisited)
-  console.log("pushState"+ URLvisited);
+  //console.log("pushState"+ URLvisited);
   // render the view with the pathname and props (ya creamos la función que lo realiza, solo llamamos):
   renderView(pathname, props);
 }

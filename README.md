@@ -24,10 +24,8 @@ La SPA realizada se ha desarrollado para ser utilizada por un usuario que desee 
 Con el fin de descubrir las necesidades el usuario, se realizaron 5 historias de usuario.
 ![Historias de usuario](https://github.com/LidiaAliciaJG/Laboratoria-dataverse/blob/5559e14614f99dea2a75926fa49f1223a883f35b/src/imagenes/historiasdeusuario.png)
 
-A partir de lo anterior, se realizó un prototipado de alta fidelidad con interacción a través de Figma. A continuación se encuentra la versión mobile y la de escritorio que se crearon con el fin de seguir la metodología Mobile First:
-[Prototipo de alta resolución para móviles](https://www.figma.com/proto/wEhsKfwlfUiGR9cFomYMqY/Dataverse-Project?type=design&node-id=393-361&t=OfUPieCaUroi7FCw-1&scaling=scale-down&page-id=393%3A23&starting-point-node-id=393%3A361&mode=design)
-//
-[Prototipo de alta resolución para escritorio](https://www.figma.com/proto/wEhsKfwlfUiGR9cFomYMqY/Dataverse-Project?type=design&node-id=237-144&t=Z1IuBdZn4yvCWZkQ-1&scaling=scale-down&page-id=4%3A23&starting-point-node-id=237%3A144&mode=design)
+A partir de lo anterior, se realizó un prototipado de alta fidelidad con interacción a través de Figma. A continuación se encuentra la versión mobile creado con el fin de seguir la metodología Mobile First:
+[Prototipo de alta resolución para móviles](https://www.figma.com/proto/KfLFmZHdVpAyXlQqDKmcKV/Dataverse-Chat-Project?type=design&node-id=393-361&t=lPhM18fH6y4CJzXe-1&scaling=scale-down&page-id=393%3A23&starting-point-node-id=393%3A361&mode=design)
 
 Para su desarrollo se realizó una planeación con los objetivos que se pueden observar en las siguientes imágenes, éstos se plantearon en la organización de la definición de terminado según los requerimientos del bootcamp y los descubiertos por las historias de usuario.
 
@@ -39,39 +37,31 @@ Tras el inicio del proyecto se eligió la temática de películas, por lo que, c
 ![Prompt utilizado](https://github.com/LidiaAliciaJG/Laboratoria-dataverse/blob/5559e14614f99dea2a75926fa49f1223a883f35b/src/imagenes/Laboratoria%20Prototipos.gif)
 
 Una vez desarrollado el prototipado se realizaron test de usabilidad a través del link ya compartido, se recibieron comentarios tanto del diseño como la facilidad de acceso a las opciones que se solicitaron explorar. A continuación un listado de los problemas presentados:
-- [ ] No se ubicaba el botón de "datos extra" fácilmente.
-- [ ] Se cuestionó la forma de visualizar la categoría elegida más un filtro extra.
-- [ ] Se consideró poco intuitivo el elegir un tipo de filtro y después elegir la opción de aquel tipo.
-- [ ] Se consideró una ruta larga elegir una categoría y en otro menú elegir el filtrado extra.
+- [ ] No se accedía facilmente al botón hamburguesa para ingresar al menú, solicitaron un menú que permaneciera abierto.
+- [ ] Se cuestionó la forma de visualizar las tarjetas de las películas ya que en movil la imagen abarcaba más vista.
+- [ ] La vista de personajes en el chat grupal no era intuitivo de explorar aún con los botones.
+- [ ] El chat deba a entender que era entre los usuarios.
 
-Tras los comentarios se optó por emplear un sitio web más simple con el fin de mostrar el contenido y menú en un solo sitio, los filtros se disminuyeron y facilitaron su acceso, además en una primer etapa se decidió por eliminar el primer filtrado "obligatorio" por categoría. Ya desarrollado el proyecto se realizó una prueba de usabilidad a una menor cantidad de personas, en ésta se recibieron comentarios sobre la facilidad de entendimiento sobre el uso del sitio web.
+Tras los comentarios se optó por emplear un sitio web más simple con el fin de mostrar el contenido y menú en un solo sitio. Se realizó un diseño de tarjetas para visualizar la imagen e información a la par, con un pequeño banner inferior que indica "charlar con el protagonista". En cuando a la vista del chat grupal se optó por una visualización de la mitad de un personaje al final para dar a entender el movimiento del scroll. Al finalizar el proyecto se realizó un último test de usabilidad, cuyos resultados fue una mayor facilidad de uso.
 
 ## Características técnicas
-El boilerplate del proyecto se divide en un archivo `dataset.js` que contiene el conjunto de datos generados a través de ChatGPT sobre 24 películas de 4 diferentes géneros, en un archivo `index.html`, `style.css` que mantienen la estructura básica y diseño del sitio web, y en tres archivos de JavaScript; `dataFunctions.js`, contiene tres funciones para el filtrado, ordenado y calculo de dos estadísticas, `view.js` en el cual se renderiza el conjunto de datos y `main.js`, el cual mantiene la interacción con el DOM.
-
-* Desarrollar una [Single Page Application (SPA)](https://es.wikipedia.org/wiki/Single-page_application)
-* Aplicar los conceptos de responsividad en el desarrollo de las vistas
-* Implementar un router para la navegación entre las diferentes
-  vistas de la aplicación
-* Integrar una API externa
-* Entender la asincronía en JavaScript
-* Crear una suite de pruebas unitarias que permitan testear código asíncrono
+El boilerplate del proyecto se divide en un archivo `dataset.js` dentro de la carpeta `data` que contiene el conjunto de datos generados a través de ChatGPT sobre 24 películas de 4 diferentes géneros, en un archivo `index.html`, `style.css` que mantienen la estructura básica y diseño del sitio web. En la carpeta `views` se encuentran las vistas a renderizar, la carpeta `lib` contiene las funciones de filtrado, ordenado y sus estadísticas además de la solicitud para la API de OpenAI. También se encuentra la carpeta `components` donde se colocaron diversos componentes a utilizar en las vistas. Finalmente contiene un `router.js` para la navegación en la SPA.
 
 ### Funcionalidades del proyecto
-- `filterData(data, filterBy, value)`: esta función recibe tres parámetros. El primer parámetro, data, entrega los datos. El segundo parámetro, filterBy, indica con respecto a cuál de los campos de la data se quiere filtrar. El tercer parámetro, value, indica el valor de campo que se desea filtrar.
-- `sortData(data, sortBy, sortOrder)`: esta función sort u ordenar recibe tres parámetros. El primer parámetro, data, entrega los datos. El segundo parámetro, sortBy, indica con respecto a cuál de los campos de la data se quiere ordenar. El tercer parámetro, sortOrder, refiere si se desea ordenar de manera ascendente o descendente.
-- `computeStats(data)`: la función compute o calcular, realiza dos cálculos estadísticos básicos para ser mostrados de acuerdo a la data proporcionada, esta función incluye la cantidad de películas visualizadas y el cálculo del promedio del porcentaje de aceptación según la crítica de las películas visualizadas.
-- `test/dataFunctions.spec.js`: En este archivo se crearon las pruebas unitarias de las funciones implementadas en el archivo dataFunctions.js (filterBy, sortBy, computeStats).
--  `renderItems(data)`: esta función recibe el arreglo de data para renderizar los elementos de cada item según las características requeridas.
+Este proyecto se desarrolla como una Single Page Application (SPA), con este fin se realizó un router que permite la navegación que renderiza las diferentes vistas sin cargar el sitio web nuevamente, simulando las URL visitadas y guardando el historial.
+
+Se integró una API de OpenAI para crear una chat que se visualiza en la vista `/panel` y `/personaje?id`. Este permite la interacción con el personaje elegido o todos del dataset creado ya que se envía un prompt indicando el personaje que debe representar junto con el historial de conversación.
+
+Este proyecto trabaja con asíncronía en JavaScript y contiene responsividad en sus vistas.
 
 ## Deploy
-La aplicación se encuentra publicado a través de Netlify, accesible a todo usuario: [Link](https://lidiaaliciajg.github.io/Laboratoria-dataverse/src/index.html).
+La aplicación se encuentra publicado a través de Netlify, accesible a todo usuario: [Link](dataverse-chat-by-lajg.netlify.app/).
 
 ![Vista del sitio web](https://github.com/LidiaAliciaJG/Laboratoria-dataverse/blob/5559e14614f99dea2a75926fa49f1223a883f35b/src/imagenes/vista.png)
 
 
 ## Pruebas
-El proyecto contiene una configuración de 3 test donde se evalúa el funcionamiento y requirimientos esperados. Además se incluyó un test de pruebas unitarias, realizado con Jest, para evaluar las funciones realizadas de filtrado, ordenado y calculo de estadísticas.
+El proyecto contiene una configuración de 3 test realizados en Jest donde se evalúa el funcionamiento y requirimientos esperados como las funciones realizadas de filtrado, ordenado y calculo de estadísticas, el uso de la API y el contenido de ciertos elementos en las vistas. Evaluandose a través de `npm test`
 
 ## Tecnologías
 * HTML
@@ -86,13 +76,3 @@ El proyecto contiene una configuración de 3 test donde se evalúa el funcionami
 
 | [<img src="https://github.com/LidiaAliciaJG.png?size=139">](https://github.com/LidiaAliciaJG) | [Lidia Alicia JG](https://github.com/LidiaAliciaJG) <br> <sub>[Sitio web](https://lidiaaliciajg.github.io/)</sub> <br> <sub>[LinkedIn](https://www.linkedin.com/in/lidiaaliciajg/)</sub> |
 | :---: | :---: |
-
-
-
-* Tiene un `README.md` con la siguiente:
-  - [ ] _Definición del producto_ clara e informativa
-  - [ ] Historias de usuaria
-  - [ ] Un _sketch_ de la solución (prototipo de baja fidelidad) y
-    _Diseño de la Interfaz de Usuaria_ (prototipo de alta fidelidad)
-  - [ ] El listado de problemas que detectaste a través de tests
-    de usabilidad en el `README.md`
